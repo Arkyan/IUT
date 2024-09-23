@@ -25,7 +25,3 @@ if __name__ =="__main__" :
 
     else : 
         print("il y a une erreur dans les dimensions")
-
-
-
-    
