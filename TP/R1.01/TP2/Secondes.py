@@ -33,7 +33,7 @@ if __name__ == "__main__" :
     annee = 365 * jour
 
     if choix == "secondes" :
-            Convers =int(input("Entrez un nombre de secondes : ")) 
+            Convers =int(input("Entrez un nombre entier de secondes : ")) 
             resultatannee = Convers // annee
             resultat = Convers % annee
             resultatmois = resultat // mois
