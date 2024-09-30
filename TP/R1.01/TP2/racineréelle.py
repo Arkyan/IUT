@@ -26,6 +26,7 @@ if __name__ == "__main__" :
             x1 = (-b - math.sqrt(delta)) / (2 * a)
             x2 = (-b + math.sqrt(delta)) / (2 * a)
             print("Les solutions sont :", x1, " et ", x2)
+        else:
             if delta == 0:
                 x = -b / (2 * a)
                 print("La solution est :", x)

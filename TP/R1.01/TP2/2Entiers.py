@@ -14,4 +14,3 @@ if __name__ == "__main__" :
             print(n1,"=",n2)
     else :
         print("Les nombres doivent être entiers")
-
