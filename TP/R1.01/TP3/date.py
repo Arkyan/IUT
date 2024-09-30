@@ -1,12 +1,25 @@
 if __name__ == "__main__" :
-        jour : int
-        mois : int
-        annee : int
+        jour : float
+        mois : float
+        annee : float
         bissextile : bool
         bissextile = False
-        jour = int(input("Entrez le jour : "))
-        mois = int(input("Entrez le mois : "))
-        annee = int(input("Entrez l'année : "))
+        jour = float(input("Entrez le jour : "))
+        mois = float(input("Entrez le mois : "))
+        annee = float(input("Entrez l'année : "))
+
+        while jour != int(jour) or mois != int(mois) or annee != int(annee) :
+            print("Erreur, les nombres doivent être des entiers")
+            jour = float(input("Entrez le jour : "))
+            mois = float(input("Entrez le mois : "))
+            annee = float(input("Entrez l'année : "))
+        while jour < 1 or jour > 31 :
+            print("Erreur, le jour doit être compris entre 1 et 31")
+            jour = int(input("Entrez le jour : "))
+        while mois < 1 or mois > 12 :
+            print("Erreur, le mois doit être compris entre 1 et 12")
+            mois = int(input("Entrez le mois : "))
+            
         if annee % 4 == 0 :
             if annee % 100 != 0 :
                 bissextile = True
