@@ -26,12 +26,12 @@ if __name__ == "__main__" :
         choix = str(input("Voulez vous convertir des secondes en années, mois, semaines, jours, heures et minutes ?\n Ou voulez vous convertir des années, mois, semaines, jours, heures et minutes en secondes ?\nRépondez par 'secondes' ou 'temps' : "))
         
         seconde = 1
-        minute = 60 * 1
+        minute = 60 * seconde
         heure = 60 * minute
         jour = 24 * heure
         semaine = 7 * jour
-        mois = 30 * jour
-        annee = 365 * jour
+        mois = 4 * semaine
+        annee = 12 * mois
 
         if choix == "secondes" or choix == "Secondes"  or choix == "SECONDES" :      
                 convers = int(input("Entrez un nombre entier de secondes : "))
@@ -50,8 +50,9 @@ if __name__ == "__main__" :
                         resultat = resultat % heure
                         resultatminute = resultat // minute
                         resultat = resultat % minute
+                        resultatseconde = resultat // seconde
                         resultat = resultat % seconde
-                        print("Cela fait :\n", resultatannee, "année(s)\n", resultatmois, "mois\n", resultatsemaine, "semaine(s)\n", resultatjour, "jour(s)\n", resultatheure, "heure(s)\n", resultatminute, "minute(s)\n", resultat, "seconde(s)\n")
+                        print("Cela fait :\n", resultatannee, "année(s)\n", resultatmois, "mois\n", resultatsemaine, "semaine(s)\n", resultatjour, "jour(s)\n", resultatheure, "heure(s)\n", resultatminute, "minute(s)\n", resultatseconde, "seconde(s)\n")
 
         if choix == "temps" or choix == "Temps" or choix == "TEMPS" :
                 annee1 = int(input("Entrez un nombre d'année(s) : "))
