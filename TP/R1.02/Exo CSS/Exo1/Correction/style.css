@@ -1,0 +1,198 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*Custom code*/
+body{
+	background-color: #FDC500;
+}
+
+#container{
+	width: 1200px;
+	min-height: 300px;
+	background-color: #FFF;
+	margin: auto;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	border: solid black 2px;
+}
+
+header{
+	padding: 30px;
+}
+
+header>img{
+	width: 150px;
+	border-radius: 100%;
+	display: inline-block;
+}
+
+header>h1{
+	font-size: 30px;
+	font-weight: bold;
+	display: inline-block;
+	width: 840px;
+	height: 150px;
+	line-height: 150px;
+	vertical-align: top;
+	text-align: center;
+}
+
+nav{
+	border-top: solid black 2px;
+	border-bottom: solid black 2px;
+}
+
+nav li{
+	display: inline-block;
+	width: calc(20% - 4px);
+	height: 30px;
+	line-height: 30px;
+	border-right: solid black 2px;
+	text-align: center;
+	color: #000;
+	background-color: #FDC500;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.lastList{
+	border-right: solid black 0px;
+}
+
+nav a{
+	text-decoration: none;
+	color: #000;
+	background-color: #FFF;
+	display: block;
+}
+
+#container>div{
+	padding: 30px;	
+}
+
+#news article{
+	display: inline-block;
+	width: calc(50% - 15px);
+	text-align: justify;
+	vertical-align: top;
+}
+
+#news article img{
+	width: 120px;
+	display: inline-block;
+	border: solid black 2px;
+}
+
+#news article h2{
+	display: inline-block;
+	height: 80px;
+	line-height: 80px;
+	vertical-align: top;
+	margin-left: 20px;
+	font-weight: bold;
+}
+
+#news article a{
+	float: right;
+	font-size: 15px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #000;
+}
+
+#news article>div{
+	margin-bottom: 10px;
+}
+
+.addPadding{
+	padding-right: 30px;
+}
+
+#events{
+	border-top: solid black 2px;
+}
+
+#events article{
+	display: inline-block;
+	width: calc(33.33% - 30px);
+	text-align: justify;
+	vertical-align: top;
+}
+
+#events h2{
+	font-weight: bold;
+}
+
+#events h2, #events div{
+	margin-bottom: 10px;
+}
+
+#events a{
+	text-align: center;
+	display: block;
+	text-decoration: none;
+	color: #000;
+	font-weight: bold;
+}
+
+#presentation{
+	border-top: solid black 2px;
+	text-align: justify;
+}
+
+#presentation aside{
+	border: solid black 2px;
+	width: 250px;
+	padding: 15px;
+	margin: 0px 0px 30px 30px;
+}
+
+#presentation aside{
+	float: right;
+}

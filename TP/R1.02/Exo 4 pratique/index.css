@@ -1,0 +1,56 @@
+body {
+    background-color: #D1FFFB;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: url('media/banner.jpg') center center no-repeat;
+    background-size: cover;
+    padding: 8px;
+    text-align: center;
+}
+
+
+nav{
+	border-bottom: solid black 2px;
+    border-top: none;
+
+}   
+
+nav ul{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+nav li{
+	display: inline-block;
+	color: #000;
+	font-size: 15px;
+	font-weight: bold;
+    border-right: solid black 2px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 74px;
+    padding-right: 74px;
+}
+
+nav li:last-child{
+    border-right: none;
+}
+
+.container {
+    margin-left: 250px;
+    margin-right: 250px;
+    background-color: white;
+}
+
+.part1 {
+    margin-left: 10px;
+    text-align: justify;
+}
+
+.sep1 {
+    text-align: center;
+}

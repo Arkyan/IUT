@@ -64,3 +64,12 @@ body {
     cursor: pointer;
 }
 
+.menu-item-active {
+    background-color: #FFCE00;
+    padding: 5px 47.6666666px;
+    border-right: 2px solid black;
+    text-align:center;
+    color: black;
+    font-weight:bold;
+}
+
