@@ -48,9 +48,98 @@ nav li:last-child{
 
 .part1 {
     margin-left: 10px;
-    text-align: justify;
+}
+
+.learn {
+    font-weight: bold;
+    font-size: 20px;
+    margin: 0;
+}
+
+.part1 aside{
+	background-color: #FFFACD;
+	width: 250px;
+	margin-left: 30px;
+    margin-right: 20px;
+    margin-bottom:10px;
+    padding: 0;
+    float: right;
+    padding: 5px;
+}
+
+
+.txt1 {
+    text-indent: 30px;
+}
+
+.part2 {
+    margin-left: 10px;
+}
+
+.txt2 {
+    text-indent: 30px;
 }
 
 .sep1 {
     text-align: center;
 }
+
+blockquote
+{
+	width: 50%;
+	margin: auto;
+	margin-top: 25px;
+}
+
+blockquote>p
+{
+	font-size: 25px;
+	text-align: center;
+}
+
+blockquote>footer
+{
+	text-align: right;
+}
+
+blockquote>footer>cite
+{
+	font-style: italic;
+}
+
+
+.sep2 {
+    text-align: center;
+}
+
+.sep3 {
+    text-align: center;
+}
+
+.part3 {
+    margin-left: 10px;
+}
+
+.part4 {
+    margin-left: 10px;
+}
+
+table {
+    margin-left: 20px;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+thead {
+    color: rgb(255, 255, 255);
+}
+
+th,
+td {
+    text-align: center;
+    border: 1px solid #000000;
+     
+}
+
+
+
