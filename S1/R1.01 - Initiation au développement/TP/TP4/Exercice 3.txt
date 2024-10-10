@@ -1,0 +1,29 @@
+Programme pyramide
+début
+    avec n : réel
+         i : entier
+         j : entier
+
+    afficher "Entrez la hauteur de la pyramide : "
+    saisir n 
+
+    tant que n < 0 : 
+        afficher "Entrez un nombre positif : "
+        saisir n
+    
+    si n = 0 alors
+        afficher "La pyramide est vide"
+    
+    Pour i allant de 1 à n faire
+        Pour j allant de 1 à n-i faire
+            afficher " "
+            à la ligne
+        fin pour
+        Pour j allant de 1 à 2*i faire
+            afficher "*"
+            à la ligne
+        fin pour
+    fin pour
+
+fin pyramide
+
