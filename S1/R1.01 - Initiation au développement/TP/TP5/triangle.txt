@@ -1,0 +1,22 @@
+Programme triangle
+début 
+    avec n : entier
+         i : entier
+         j : entier
+
+    afficher "Entrez un nombre positif "
+    saisir n
+
+    tant que n < 0 faire
+        afficher "Entrez un nombre positif "
+        saisir n
+    finfaire
+
+    pour i allant de 1 à n faire
+        pour j allant de 1 à i faire
+            afficher j
+        finpour
+        à la ligne
+    finpour
+fin triangle
+

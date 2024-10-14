@@ -4,15 +4,17 @@ début
          i : entier
          j : entier
 
-    afficher "Entrez la hauteur de la pyramide : "
+    afficher "Entrez la hauteur de la pyramide "
     saisir n 
 
-    tant que n < 0 : 
-        afficher "Entrez un nombre positif : "
+    tant que n < 0 faire 
+        afficher "Entrez un nombre positif "
         saisir n
+    finfaire
     
     si n = 0 alors
         afficher "La pyramide est vide"
+    finsi
     
     Pour i allant de 1 à n faire
         Pour j allant de 1 à n-i faire
