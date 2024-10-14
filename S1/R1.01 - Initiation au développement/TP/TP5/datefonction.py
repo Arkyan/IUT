@@ -32,12 +32,12 @@ if __name__ == "__main__":
     jour = float(input("Entrez un jour : "))
     mois = float(input("Entrez un mois : "))
     annee = float(input("Entrez une année : "))
-    
 
-    while jour < 1 or jour > 31 or int(jour) != jour:
+
+    while int(jour) != jour:
         jour = float(input("Entrez un jour : "))
 
-    while mois < 1 or mois > 12 or int(mois) != mois :
+    while int(mois) != mois :
         mois = float(input("Entrez un mois : "))
 
     while int(annee) != annee :

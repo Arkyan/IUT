@@ -9,7 +9,20 @@
 # 765434567
 # 876545678
 
+if __name__ == "__main__":
+    n : float
+    i : float
+    j : float
 
+    n = float(input("Entrez un nombre : "))
+
+    while n < 0 and n != int(n) :
+        n = float(input("Entrez un nombre positif : "))
+        
+
+    
+
+    
 
 
 

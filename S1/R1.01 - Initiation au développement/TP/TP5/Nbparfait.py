@@ -19,12 +19,18 @@ if __name__ == "__main__":
     n : float
     a : int
 
-    n = int(input("Entrez un nombre : "))
+    n = float(input("Entrez un nombre : "))
 
-    while n < 0:
-        n = int(input("Entrez un nombre positif : "))
+    while n < 0 or n != int(n) :
+        n = float(input("Entrez un nombre positif : "))
 
-    for i in range(1, n+1):
-        a = nbParfait(i)
-        if a == i:
-            print(i, "est un nombre parfait")
+    if n >= 6 : 
+        for i in range(1, int(n+1)):
+            a = nbParfait(i)
+            if a == i:
+                print(i, "est un nombre parfait")
+    else:
+        print("Il n'y a pas de nombre parfait inférieur à 6")
+
+
+
