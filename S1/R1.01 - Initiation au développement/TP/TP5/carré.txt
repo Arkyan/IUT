@@ -1,0 +1,46 @@
+if __name__ == "__main__":
+    n = float(input("Entrez un nombre : "))
+
+    while n < 0 or n != int(n):
+        n = float(input("Entrez un nombre positif : "))
+
+    n = int(n)
+
+    max_value = abs(n) + abs(n)
+    width = len(str(max_value))  
+
+    for i in range(int(-n), int(n+1)):
+        for j in range(int(-n), int(n+1)):
+            print(f"{abs(i) + abs(j):>{width}}", end=" ")
+        print()
+        
+
+#Convertit ça en pseudo code
+
+Programme carré
+début
+    avec n : réel
+         max_value : réel
+         width : réel
+         i : réel
+         j : réel
+
+    afficher "Entrez un nombre : "
+    saisir n
+
+    tant que n < 0 ou n != entier(n) faire
+        afficher "Entrez un nombre positif : "
+        saisir n
+    finfaire
+
+    n <- entier(n)
+    max_value <- abs(n) + abs(n)
+    width <- longueur(chaine(max_value))
+
+    pour i allant de -n à n faire
+        pour j allant de -n à n faire
+            afficher abs(i) + abs(j) aligné à droite sur width caractères
+        finfaire
+        à la ligne
+    finfaire
+fin carré
