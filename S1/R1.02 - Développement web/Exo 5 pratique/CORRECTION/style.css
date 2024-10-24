@@ -1,0 +1,180 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*Custom*/
+body{
+	background-color: #2B6B48;
+	padding: 20px 0px;
+}
+
+#mainContainer{
+	background-color: #FFF;
+	width: 1200px;
+	margin: auto;
+}
+
+header{
+	text-align: center;
+}
+
+header>div>img, header>div>h1{
+	display: inline-block;
+	height: 200px;
+	vertical-align: top;
+	line-height: 200px;
+
+	font-size: 30px;
+	font-weight: bold;
+}
+
+header>div>h1{
+	margin-left: 30px;
+}
+
+nav{
+	margin-top: 10px;
+}
+
+nav>ul{
+	border-top: solid 1px black;
+	border-bottom: solid 1px black;
+}
+
+nav>ul>li{
+	display: inline-block;
+	width: calc(20% - 1px);
+	border-right: solid 1px black;
+	height: 40px;
+	line-height: 40px;
+}
+
+nav>ul>li>a{
+	text-decoration: none;
+	color: #000;
+	width: 100%;
+	display: block;
+}
+
+nav>ul>li>ul{
+	display: none;
+	position: absolute;
+	background-color: #FFF;
+}
+
+nav>ul>li:hover>ul{
+	display: block;
+	text-align: center;
+	border: solid 1px black;
+	width: 239px;
+}
+
+
+.noBorder{
+	border: 0px;
+}
+
+footer{
+	border-top: solid 1px black;
+}
+
+footer ul:nth-child(1) li{
+	display: inline-block;
+	width: 33.33%;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+}
+
+footer ul:nth-child(2) li{
+	display: inline-block;
+	width: 50%;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+}
+
+main>div{
+	padding: 30px;
+	text-align: justify;
+}
+
+h2{
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 15px;
+}
+
+table, td, th{
+	border: solid 1px black;
+	text-align: center;
+}
+
+td, th{
+	padding: 10px;
+}
+
+th{
+	font-weight: bold;
+}
+
+nav>ul>li>a:after{
+	content: " v";
+}
+
+nav>ul>li:hover>a:after{
+	content: " >";
+}
+
+table tr td:first-child{
+	background-color: red;
+}
+
+table tr td:nth-child(3){
+	background-color: yellow;
+}

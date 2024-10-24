@@ -1,0 +1,104 @@
+CREATE TABLE CLIENT(idClient INT PRIMARY KEY,nom VARCHAR(50),ville VARCHAR(50))
+CREATE TABLE PRODUIT(idProduit VARCHAR(50) PRIMARY KEY, désignation VARCHAR(50), prix INT)
+CREATE TABLE FACTURE(idFacture INT PRIMARY KEY, datefacture DATE, idClient INT FOREIGN KEY REFERENCES CLIENT(idClient) NOT NULL)
+CREATE TABLE VENTE(idFacture INT FOREIGN KEY REFERENCES FACTURE(idFacture), idProduit VARCHAR(50) FOREIGN KEY REFERENCES PRODUIT(idProduit),quantité INT)
+
+
+INSERT INTO CLIENT VALUES (1,'Mike','Limoges')
+INSERT INTO CLIENT VALUES (2,'Joe','Paris')
+INSERT INTO CLIENT VALUES (3,'Bill','Limoges')
+
+INSERT INTO PRODUIT VALUES ('A','Marteau',50)
+INSERT INTO PRODUIT VALUES ('B','Pointes',20)
+INSERT INTO PRODUIT VALUES ('C','Vis',10)
+INSERT INTO PRODUIT VALUES ('D','Perceuse',100)
+INSERT INTO PRODUIT VALUES ('E','Scie',30)
+INSERT INTO PRODUIT VALUES ('F','Ecrous',20)
+
+INSERT INTO FACTURE VALUES (10,'17/12/2020',2)
+INSERT INTO FACTURE VALUES (20,'07/08/2021',3)
+INSERT INTO FACTURE VALUES (30,'05/11/2020',2)
+
+INSERT INTO VENTE VALUES (10,'B',5)
+INSERT INTO VENTE VALUES (10,'A',2)
+INSERT INTO VENTE VALUES (10,'F',5)
+INSERT INTO VENTE VALUES (20,'C',8)
+INSERT INTO VENTE VALUES (30,'A',3)
+INSERT INTO VENTE VALUES (30,'D',2)
+
+
+--Q1-----------------------------------------
+SELECT désignation 
+FROM PRODUIT 
+WHERE idProduit NOT IN (
+    SELECT DISTINCT idProduit 
+    FROM VENTE v 
+    JOIN FACTURE f ON v.idFacture = f.idFacture 
+    WHERE YEAR(f.dateFacture) = 2020
+);
+
+
+SELECT p.désignation 
+FROM PRODUIT p 
+LEFT JOIN VENTE v ON p.idProduit = v.idProduit 
+LEFT JOIN FACTURE f ON v.idFacture = f.idFacture AND YEAR(f.dateFacture) = 2020 
+WHERE f.idFacture IS NULL;
+
+
+SELECT désignation 
+FROM PRODUIT p 
+WHERE NOT EXISTS (
+    SELECT 1 
+    FROM VENTE v 
+    JOIN FACTURE f ON v.idFacture = f.idFacture 
+    WHERE p.idProduit = v.idProduit 
+    AND YEAR(f.dateFacture) = 2020
+);
+
+
+--Q2--------------
+SELECT c.nom, p.désignation, v.quantité, p.prix 
+FROM CLIENT c 
+JOIN FACTURE f ON c.idClient = f.idClient 
+JOIN VENTE v ON f.idFacture = v.idFacture 
+JOIN PRODUIT p ON v.idProduit = p.idProduit 
+WHERE c.ville = 'Paris';
+
+
+--Q3------------------
+SELECT SUM(v.quantité * p.prix) AS total_depenses 
+FROM CLIENT c 
+JOIN FACTURE f ON c.idClient = f.idClient 
+JOIN VENTE v ON f.idFacture = v.idFacture 
+JOIN PRODUIT p ON v.idProduit = p.idProduit 
+WHERE c.ville = 'Paris';
+
+
+--Q4-------
+SELECT c.ville, SUM(v.quantité * p.prix) AS total_depenses 
+FROM CLIENT c 
+JOIN FACTURE f ON c.idClient = f.idClient 
+JOIN VENTE v ON f.idFacture = v.idFacture 
+JOIN PRODUIT p ON v.idProduit = p.idProduit 
+GROUP BY c.ville;
+
+--Q5-----
+SELECT p.désignation, SUM(v.quantité) AS total_vendus 
+FROM PRODUIT p 
+JOIN VENTE v ON p.idProduit = v.idProduit 
+JOIN FACTURE f ON v.idFacture = f.idFacture 
+WHERE f.dateFacture < '2021-01-01' 
+GROUP BY p.désignation;
+
+
+
+--Q6--------
+SELECT p.désignation, SUM(v.quantité * p.prix) AS chiffre_affaires 
+FROM PRODUIT p 
+JOIN VENTE v ON p.idProduit = v.idProduit 
+JOIN FACTURE f ON v.idFacture = f.idFacture 
+WHERE f.dateFacture BETWEEN '2020-01-01' AND '2021-12-31' 
+GROUP BY p.désignation 
+ORDER BY chiffre_affaires DESC, p.désignation ASC;
+
+
