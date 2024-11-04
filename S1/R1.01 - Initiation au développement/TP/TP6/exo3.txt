@@ -1,0 +1,21 @@
+fonction power(a : float, n : int) retourne float :
+
+#fonction pour mettre a puissance n
+#entrées : a : float, n : int
+#sortie : float
+
+début
+    avec temp : float
+
+    si n = 0 :
+        retourner 1
+    finsi
+    si n mod 2 = 0 :
+        temp <- power(a, n // 2)
+        retourner temp * temp
+    sinon :
+        temp <- power(a, (n - 1) // 2)
+        retourner a * temp * temp
+    finsi
+fin power
+
