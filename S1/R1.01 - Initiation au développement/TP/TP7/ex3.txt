@@ -1,0 +1,106 @@
+fonction saisie() retourne listnom[100]
+début 
+    listnom : tableau[100] 
+    nom : chaine
+    encore : chaine
+    encore <- "o"
+    listnom <- []
+
+    tant que encore = "o" faire
+        saisir nom
+        tantque nom = "" faire
+            saisir nom
+        fin tantque
+
+        listnom.ajouter(nom)
+        Afficher 'Voulez-vous saisir un autre nom ? (o = oui/n = non) : \n Saisir o ou n : '
+        saisir encore
+    fin tantque
+    retourne listnom
+fin
+
+---------------------------------------------------------------------------
+
+fonction voyelle(chaine : chaine) retourne entier
+début
+    voyelles : tableau[100] de chaine
+    nb_voyelles : entier
+    lettre : chaine
+
+    voyelles <- ['a', 'e', 'i', 'o', 'u', 'y', 'A', 'E', 'I', 'O', 'U', 'Y']
+    nb_voyelles <- 0
+    pour lettre dans chaine faire
+        si lettre dans voyelles alors
+            nb_voyelles <- nb_voyelles + 1
+        fin si
+    fin pour
+    retourne nb_voyelles
+fin
+
+---------------------------------------------------------------------------
+
+fonction palindrome(chaine : chaine) retourne booleen
+debut
+    chaine <- chaine.remplacer(" ", "")
+    retourne chaine == chaine[::-1]ù
+fin
+
+---------------------------------------------------------------------------
+
+fonction afficherPalindromes(listnom : listnom[100]) -> None
+début
+    pour nom dans listnom faire
+        si palindrome(nom) alors
+            Afficher 'Le nom -', nom ,'- est un palindrome'
+        fin si
+    fin pour
+fin
+
+---------------------------------------------------------------------------
+programme principal
+début 
+    listnom : tableau[100] 
+    cond : booleen
+    choix : entier
+    choix2 : entier
+    cond <- Vrai
+
+    tantque cond = Vrai faire
+        saisir choix
+        si choix = 1 alors
+            listnom <- saisie()
+            effacer_ecran()
+            saisir choix2
+            si choix2 = 1 alors
+                pour nom dans listnom faire
+                    Afficher 'Le nombre de voyelles dans le nom -', nom ,'- est : ', voyelle(nom)
+                fin pour
+                cond <- Faux
+            fin si
+            si choix2 = 2 alors
+                afficherPalindromes(listnom)
+                cond <- Faux
+            fin si
+            si choix2 = 3 alors
+                Afficher 'Au revoir'
+                cond <- Faux
+            fin si
+        fin si
+        si choix = 2 ou choix = 3 alors
+            effacer_ecran()
+            Afficher 'Veuillez d'abord saisir un tableau de noms'
+            cond <- Vrai
+        fin si
+        si choix = 4 alors
+            effacer_ecran()
+            Afficher 'Au revoir'
+            cond <- Faux
+        fin si
+        si choix != 1 et choix != 2 et choix != 3 et choix != 4 alors
+            effacer_ecran()
+            Afficher 'Veuillez choisir une option valide'
+            cond <- Vrai
+        fin si
+    fin tantque
+fin
+   

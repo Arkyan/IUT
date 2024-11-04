@@ -1,0 +1,102 @@
+Fait le pseudo code de l'algorithme de cette fonction 
+
+*/
+if __name__ == "__main__":  
+    listnom : list[str]
+    cond : bool
+    choix : int
+    choix2 : int
+    cond = True
+    print("\033c", end="")
+
+    while cond == True: 
+        choix = int(input("Veuillez choisir une option : \n1. Saisir un tableau de nom\n2. Afficher le nombre de voyelles par nom\n3. Afficher uniquement les noms étant des palindromes \n4. Quitter\n"))
+
+        if choix == 1:
+            listnom = saisie()
+            print("\033c", end="")
+            choix2 = int(input("Veuillez choisir une option : \n1. Afficher le nombre de voyelles par nom\n2. Afficher uniquement les noms étant des palindromes \n3. Quitter\n"))
+
+            if choix2 == 1 :
+                for nom in listnom:
+                    print("Le nombre de voyelles dans le nom " + "-" + nom + "-" + " est : ", voyelle(nom))
+                cond = False
+
+            if choix2 == 2:
+                afficherPalindromes(listnom)
+                cond = False
+
+            if choix2 == 3:
+                print("Au revoir")
+                cond = False
+        
+        if choix == 2 or choix == 3:
+            print("\033c", end="")
+            print("Veuillez d'abord saisir un tableau de noms")
+            cond = True
+
+        if choix == 4:
+            print("\033c", end="")
+            print("Au revoir")
+            cond = False
+
+        if choix != 1 and choix != 2 and choix != 3 and choix != 4:
+            print("\033c", end="")
+            print("Veuillez choisir une option valide")
+            cond = True
+            
+
+
+
+
+programme principal
+début 
+    listnom : tableau[100] 
+    cond : booleen
+    choix : entier
+    choix2 : entier
+    cond <- Vrai
+
+    tantque cond = Vrai faire
+        saisir choix
+        si choix = 1 alors
+            listnom <- saisie()
+            effacer_ecran()
+            saisir choix2
+            si choix2 = 1 alors
+                pour nom dans listnom faire
+                    Afficher 'Le nombre de voyelles dans le nom -', nom ,'- est : ', voyelle(nom)
+                fin pour
+                cond <- Faux
+            fin si
+            si choix2 = 2 alors
+                afficherPalindromes(listnom)
+                cond <- Faux
+            fin si
+            si choix2 = 3 alors
+                Afficher 'Au revoir'
+                cond <- Faux
+            fin si
+        fin si
+        si choix = 2 ou choix = 3 alors
+            effacer_ecran()
+            Afficher 'Veuillez d'abord saisir un tableau de noms'
+            cond <- Vrai
+        fin si
+        si choix = 4 alors
+            effacer_ecran()
+            Afficher 'Au revoir'
+            cond <- Faux
+        fin si
+        si choix != 1 et choix != 2 et choix != 3 et choix != 4 alors
+            effacer_ecran()
+            Afficher 'Veuillez choisir une option valide'
+            cond <- Vrai
+        fin si
+    fin tantque
+fin
+    
+
+
+
+
