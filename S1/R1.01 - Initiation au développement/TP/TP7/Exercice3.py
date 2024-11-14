@@ -73,7 +73,7 @@ if __name__ == "__main__":
     print("\033c", end="")
 
     while cond == True: 
-        choix = int(input("Veuillez choisir une option : \n1. Saisir un tableau de nom\n2. Afficher le nombre de voyelles par nom\n3. Afficher uniquement les noms étant des palindromes \n4. Quitter\n"))
+        choix = int(input("Veuillez choisir une option : \n1. Saisir un tableau de nom\n2. Afficher le nombre de voyelles par nom\n3. Afficher uniquement les noms étant des palindromes \n4. Quitter\n--> "))
 
         if choix == 1:
             listnom = saisie()

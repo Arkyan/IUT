@@ -1,0 +1,13 @@
+@media screen and (max-width: 750px)
+{
+	nav{
+		display: none;
+	}
+
+	#rightPart, #leftPart{
+		float: none;
+		width: calc(100% - 34px);
+		margin: 0px;
+		margin-top: 10px;
+	}
+}
