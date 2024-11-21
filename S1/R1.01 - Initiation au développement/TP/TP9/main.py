@@ -1,4 +1,13 @@
 class Livre:
+    """
+    Classe qui représente un livre
+    Attributs:
+        titre (str): le titre du livre
+        auteur (str): le nom de l'auteur
+        annee (int): l'année de publication
+        nbPages (int): le nombre de pages
+    """
+
     def __init__(self, titre: str, auteur: str, annee: int, nbpages: int):
         self.titre = titre
         self.auteur = auteur
@@ -45,6 +54,8 @@ def afficher_bibliothèque(bibliothèque: list[Livre]) -> None:
     """
     for livre in bibliothèque:
         print(livre)
+    if len(bibliothèque) == 0:
+        print("La bibliothèque est vide")
 
 ############################################
 ############################################
@@ -85,14 +96,16 @@ def rechercher_livre(bibliothèque: list[Livre]) -> None:
     Returns:
         None
     """
-    titre : str 
     titre = input("Entrez le titre du livre: ")
+    trouve = False  # Indicateur pour savoir si le livre a été trouvé
 
-    for livre in bibliothèque :
-        if livre.titre == titre :
+    for livre in bibliothèque:
+        if livre.titre == titre:
             print(livre)
-        else:
-            print("Le livre n'existe pas dans la bibliothèque")
+            trouve = True
+
+    if not trouve:  # Si aucun livre n'a été trouvé
+        print("Le livre n'existe pas dans la bibliothèque")
 
 ############################################
 ############################################
@@ -113,5 +126,5 @@ if __name__ == "__main__":
             rechercher_livre(bibliothèque)
         if choix == 4:
             exit()
-        else :
+        if choix < 1 or choix > 4:
             print("Choix invalide")
