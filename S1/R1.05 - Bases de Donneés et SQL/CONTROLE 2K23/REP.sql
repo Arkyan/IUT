@@ -55,7 +55,9 @@ Q3 : -- Définissez l’utilité des contraintes CHECK et DEFAULT ?
 -- Les contraintes CHECK et DEFAULT sont des mécanismes utilisés dans les bases de données relationnelles pour assurer l'intégrité des données.
 
 --Contrainte CHECK
---La contrainte CHECK est utilisée pour limiter les valeurs qu'une colonne peut accepter. Elle impose une condition qui doit être vraie pour chaque ligne de la table. Par exemple, si vous avez une colonne age et que vous voulez vous assurer que l'âge est toujours supérieur ou égal à 18, vous pouvez utiliser une contrainte CHECK.
+--La contrainte CHECK est utilisée pour limiter les valeurs qu'une colonne peut accepter. Elle impose une condition qui doit être vraie pour chaque 
+--ligne de la table. Par exemple, si vous avez une colonne age et que vous voulez vous assurer que l'âge est toujours supérieur ou égal à 18, 
+--vous pouvez utiliser une contrainte CHECK.
 
 --Exemple :
 CREATE TABLE Person (
@@ -67,7 +69,8 @@ CREATE TABLE Person (
 
 
 --Contrainte DEFAULT
---La contrainte DEFAULT est utilisée pour fournir une valeur par défaut pour une colonne lorsque aucune valeur n'est spécifiée lors de l'insertion d'une nouvelle ligne. Cela permet de s'assurer que la colonne ne reste pas vide et a une valeur significative par défaut.
+--La contrainte DEFAULT est utilisée pour fournir une valeur par défaut pour une colonne lorsque aucune valeur n'est spécifiée lors de l'insertion 
+--d'une nouvelle ligne. Cela permet de s'assurer que la colonne ne reste pas vide et a une valeur significative par défaut.
 
 --Exemple :
 CREATE TABLE Person (
