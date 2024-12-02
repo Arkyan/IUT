@@ -213,4 +213,4 @@ salaire DECIMAL(10,2) NOT NULL
     JOIN EMPLOYE ON ENTREPRISE.idEntreprise = EMPLOYE.idEntreprise
     WHERE salaire > 60000
     GROUP BY entreprise
-    HAVING COUNT(*) >= 2;
+    HAVING COUNT(EMPLOYE.matricule) >= 2;
