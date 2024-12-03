@@ -1,0 +1,4 @@
+Titre -> AUIFEVA;Auteur -> Nom : Murakami | Prénom : Haruki | Nationalité : Japonais | Date de naissance : 12/01/1949 | Date de décès : None Haruki;Année de publication -> 2000;Nombre de pages -> 5
+Titre -> VEZVZBHAGA;Auteur -> Nom : Murakami | Prénom : Haruki | Nationalité : Japonais | Date de naissance : 12/01/1949 | Date de décès : None Haruki;Année de publication -> 2000;Nombre de pages -> 5
+Titre -> VEZVZBHAGA;Auteur -> Nom : Murakami | Prénom : Haruki | Nationalité : Japonais | Date de naissance : 12/01/1949 | Date de décès : None Haruki;Année de publication -> 2000;Nombre de pages -> 5
+Titre -> cpiaevcpae;Auteur -> Nom : Dumas | Prénom : Alexandre | Nationalité : Française | Date de naissance : 24/07/1802 | Date de décès : None Alexandre;Année de publication -> 2000;Nombre de pages -> 6
