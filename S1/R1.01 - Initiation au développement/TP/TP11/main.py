@@ -1,4 +1,5 @@
 import pickle
+from time import sleep
 class Auteur : 
         """
         Classe qui représente un auteur
@@ -61,7 +62,7 @@ def afficher_menu() -> int:
     print("6. Importer la bibliothèque depuis un fichier texte")
     print("7. Quitter")
 
-    choix = int(input("Entrez votre choix: "))
+    choix =int(input("Entrez votre choix: "))
 
     return choix
 
@@ -77,10 +78,7 @@ def afficher_bibliothèque(bibliothèque: list[Livre]) -> None:
     Returns:
         None
     """
-    for livre in bibliothèque:
-        print(livre)
-    if len(bibliothèque) == 0:
-        print("La bibliothèque est vide")
+    lire_fichier_binaire('bibliothèque.bin')
 
 ############################################
 ############################################
@@ -290,7 +288,7 @@ def export_binaire_texte(bibliothèque: list[Livre], fichier_texte: str, fichier
             bibliothèque = []
 
         # Création et écriture dans le fichier texte (écrasé à chaque exécution)
-        with open(fichier_texte, "a", encoding="utf-8") as file:  # Mode 'w' pour écraser le fichier
+        with open(fichier_texte, "w", encoding="utf-8") as file:  # Mode 'w' pour écraser le fichier
             for livre in bibliothèque:
                 # Écrire chaque livre dans une ligne séparée
                 file.write(f"Titre -> {livre.titre};Auteur -> {livre.auteur} {livre.auteur.prenom};"
@@ -319,6 +317,32 @@ def import_bibliotheque_texte(bibliothèque: list[Livre], fichier: str) -> None:
         None
     """
     print("Encore en dev")
+
+def lire_fichier_binaire(fichier: str) -> list[Livre]:
+    """
+    Fonction qui lit un fichier binaire et affiche clairement son contenu
+    
+    Args:
+        fichier (str): Le nom du fichier binaire.
+    
+    Returns:
+        list[Livre]: La liste des livres du fichier binaire.
+    """
+    try:
+        with open(fichier, "rb") as file:
+            bibliothèque = pickle.load(file)
+            print("Contenu du fichier binaire :")
+            for livre in bibliothèque:
+                print(livre)
+            sleep(5)
+            return bibliothèque
+        
+    except FileNotFoundError:
+        print(f"Le fichier '{fichier}' n'existe pas.")
+        return []
+    except EOFError:
+        print(f"Le fichier '{fichier}' est vide.")
+        return []
 
 ############################################
 ############################################
