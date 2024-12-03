@@ -112,13 +112,13 @@ Q4 :
 
 Q5 : 
 -- 5. Que se passe-t-il lorsque que l'on exécute les commandes suivantes :
--- a) INSERT INTO STOCK VALUES ('Marteau', 9.4)
+a) INSERT INTO STOCK VALUES ('Marteau', 9.4)
     -- Cela rentrera Marteau avec un prix à 9.4€
 
--- b) INSERT INTO STOCK VALUES ('Scie', 10.5)
-    -- Cela rentrera Scie avec un prix à 10.5€
-
--- c) INSERT INTO STOCK (OBJET) VALUES ('Lime')
+b) INSERT INTO STOCK VALUES ('Scie', 10.5)
+    -- marche pas car 10.5 
+ 
+c) INSERT INTO STOCK (OBJET) VALUES ('Lime')
     -- Génère une erreur car la colonne PRIX ne peut pas être NULL
 
 #####################################################################
@@ -130,7 +130,6 @@ Q6 :
 
 -- b) Augmenter le prix de la « Vis » de 10%
     UPDATE STOCK SET PRIX = PRIX * 1.1 WHERE OBJET = 'Vis';
-
 
 -- c) Effacer les tuples de la table « STOCK »
     DELETE FROM STOCK;
