@@ -211,7 +211,13 @@ TranspoMatrice2
 #'
 #' @examples
 produitDeDeuxMatrices <- function(matriceA, matriceB){
-  
+  if (ncol(matriceA) != nrow(matriceB)) {
+    print("Les matrices ne peuvent pas être multipliées")
+    return(NULL)
+  } else {
+    print("Multiplication des deux matrices")
+    return(matriceA %*% matriceB)
+  }
   
 }
 
@@ -232,20 +238,40 @@ all.equal(matriceCD, matriceC %*% matriceD)
 
 
 ############################### Question 1 ############################### 
+#A(4,2) et B(2,3) POSSIBLE
 
+#[2,1,2]
+#[3,3,3]
+#[0,1,0]
+#[4,4,4]
 
+#B(2,3) et A(4,2) PO POSSIBLE 
 ############################### Question 2 ############################### 
+#A(2,3) et B(3,2) Possible
+#[6,6]
+#[1,2]
 
+#B(3,2) et A(2,3) Possible
+#[1,2,3]
+#[1,2,3]
+#[1,2,1]
 
 ##########################################################################
 ############################### Exercice 9  ##############################
 ##########################################################################
 produitDeDeuxMatricesBooleennes <- function(matriceBoolenneA, matriceBoolenneB){
+  if (ncol(matriceBoolenneA) != nrow(matriceBoolenneB)) {
+    print("Les matrices ne peuvent pas être multipliées")
+    return(NULL)
+  } else {
+    print("Multiplication des deux matrices")
+    return(matriceBoolenneA %*% matriceBoolenneB)
+  }
+  
 }
 
-
 matriceBoolenneA <- convertionMatriceEnMatriceBoolenne(matriceA)
-matriceBoolenneB <- transposeDUneMatriceV2(convertionMatriceEnMatriceBoolenne(matriceC[2:3,]))
+matriceBoolenneB <- transposeDUneMatrice(convertionMatriceEnMatriceBoolenne(matriceC[2:3,]))
 matriceBoolenneA
 matriceBoolenneB
 matriceBoolenneAB <- produitDeDeuxMatricesBooleennes(matriceBoolenneA,matriceBoolenneB)
@@ -257,9 +283,13 @@ matriceBoolenneAB
 
 
 ############################### Question 1 ############################### 
+#[0, 0, 1, 1],  # Relations de 1
+#[0, 1, 1, 0],  # Relations de 2
+#[0, 0, 1, 0],  # Relations de 3
+#[0, 1, 1, 0]   # Relations de 4
+
 
 ############################ Questions 2 et 3 ############################ 
-
 ############################## Réflexivité ###############################
 
 
