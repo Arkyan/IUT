@@ -1,0 +1,2 @@
+Titre -> iurzp)fvbz;Auteur -> Nom : Hemingway | Prénom : Ernest | Nationalité : Américaine | Date de naissance : 21/07/1899 | Date de décès : None Ernest;Année de publication -> 2000;Nombre de pages -> 256
+Titre -> iugp;Auteur -> Nom : Gaiman | Prénom : Neil | Nationalité : Britannique | Date de naissance : 10/11/1960 | Date de décès : None Neil;Année de publication -> 2512;Nombre de pages -> 23
