@@ -126,33 +126,26 @@ def ajouter_auteur(listeAuteurs : list[Auteur]) -> None:
 ############################################
 ############################################
 
-def ajouter_livre(bibliothèque: list[Livre], listeAuteurs: list[Auteur], fichier: str) -> None:
+def ajouter_livre(nom_fichier: str, listeAuteurs: list[Auteur]) -> None:
     """
-    Fonction qui ajoute un livre à la bibliothèque
-    Args:
-        bibliothèque (list[Livre]): la liste des livres de la bibliothèque
-    Returns:
-        None
+    Fonction qui ajoute un livre à la bibliothèque existante dans un fichier binaire.
+    Si le fichier contient déjà des livres, ils seront conservés.
     """
-    titre : str 
-    titre = input("Entrez le titre du livre: ")
+    # Charger la bibliothèque existante
+    bibliothèque = lire_fichier_binaire(nom_fichier)
 
-    auteur : Auteur
+    # Obtenir les informations du nouveau livre
+    titre = input("Entrez le titre du livre: ")
     afficher_liste_auteurs(listeAuteurs)
     choixauteur = int(input("Choisissez l'auteur que vous souhaitez (Entrez le chiffre noté sur la gauche) : ")) 
     auteur = listeAuteurs[choixauteur]
-
-    annee : int 
     annee = int(input("Entrez l'année de publication: "))
-
-    nbpages : int 
     nbpages = int(input("Entrez le nombre de pages: "))
 
     livre = Livre(titre, auteur, annee, nbpages)
     bibliothèque.append(livre)
 
-    #Enregistrement de la bibliothèque dans le fichier binaire permanent
-    nom_fichier = 'bibliothèque.bin'
+    # Réécriture complète de la bibliothèque dans le fichier
     try:
         with open(nom_fichier, "wb") as file:
             pickle.dump(bibliothèque, file)
@@ -209,23 +202,6 @@ def verification_fichierbinaire_existe(fichier: str) -> bool:
             return True
         except IOError:
             return False
-       
-############################################
-
-def chargement_biblio_binaire(fichier : str) -> list[Livre]:
-    """
-    Fonction qui charge une bibliothèque depuis un fichier binaire.
-    
-    Returns:
-        list[Livre]: La liste des livres de la bibliothèque.
-    """
-
-    try:
-        with open(fichier, "rb") as file:
-            return pickle.load(file)
-    except EOFError:
-        print(f"Le fichier '{fichier}' est vide. Une bibliothèque vide est retournée.")
-        return []
     
 ############################################
 
@@ -245,8 +221,7 @@ def sauvegarde_biblio_binaire (bibliothèque : list[Livre], fichier : str) -> No
 ############################################
 def export_binaire_texte(fichier_texte: str, fichier_binaire: str) -> None:
     """
-    Fonction qui lit un fichier binaire, exporte son contenu dans un fichier texte,
-    puis vide le fichier binaire.
+    Fonction qui lit un fichier binaire, exporte son contenu dans un fichier texte
     
     Args:
         bibliothèque (list[Livre]): La liste des livres de la bibliothèque.
@@ -271,13 +246,13 @@ def export_binaire_texte(fichier_texte: str, fichier_binaire: str) -> None:
         with open(fichier_texte, "w", encoding="utf-8") as file:  # Mode 'w' pour écraser le fichier
             for livre in bibliothèque:
                 # Écrire chaque livre dans une ligne séparée
-                file.write(f"Titre -> {livre.titre};Auteur -> {livre.auteur} {livre.auteur.prenom};"
-                           f"Année de publication -> {livre.annee};Nombre de pages -> {livre.nbPages}\n")
+                file.write(f"Titre -> {livre.titre};Auteur -> {livre.auteur};Année de publication -> {livre.annee};Nombre de pages -> {livre.nbPages}\n")
                 
         print(f"La bibliothèque a été exportée avec succès dans le fichier '{fichier_texte}'.")
 
     except IOError:
         print(f"Erreur : Impossible de créer ou d'écrire dans le fichier '{fichier_texte}'.")
+
 
 def import_bibliotheque_texte(bibliothèque : list[Livre] ,fichierimport : str, fichierbinaire: str) -> None:
     """
@@ -288,67 +263,78 @@ def import_bibliotheque_texte(bibliothèque : list[Livre] ,fichierimport : str, 
     Returns:
         None
     """
-    
+    # Charger la bibliothèque existante
+    bibliothèque = lire_fichier_binaire(fichierbinaire)
+
     try:
         with open(fichierimport, "r", encoding="utf-8") as file:
             lignes = file.readlines()
-            bibliothèque = []
-            for ligne in lignes:
-                # Séparer les informations du livre
-                infos = ligne.split(";")
-                titre = infos[0].split("->")[1].strip()
-                auteur = infos[1].split("->")[1].strip()
-                prenom = infos[1].split("->")[2].strip()
-                annee = int(infos[2].split("->")[1].strip())
-                nbPages = int(infos[3].split("->")[1].strip())
 
-                # Créer un auteur
-                auteur = Auteur(auteur, prenom, "", "", "")
-                # Créer un livre
-                livre = Livre(titre, auteur, annee, nbPages)
-                bibliothèque.append(livre)
-                
-        # Ajouter les livres importés à la bibliothèque existante
-        with open(fichierbinaire, "rb") as bin_file:
-            bibliotheque_existante = pickle.load(bin_file)
-            bibliotheque_existante.extend(bibliothèque)
-        
-        # Sauvegarder la bibliothèque mise à jour
+            for ligne in lignes:
+                # Découper la ligne en fonction des séparateurs
+                elements = ligne.split(";")
+                titre = elements[0].split("->")[1].strip()
+                auteur_details = elements[1].split("->")[1].strip().split("|")
+                nom = auteur_details[0]
+                prenom = auteur_details[1]
+                nationalite = auteur_details[2]
+                dateNaissance = auteur_details[3]
+                dateDeces = auteur_details[4] if len(auteur_details) > 4 else ""
+                auteur = Auteur(nom, prenom, nationalite, dateNaissance, dateDeces)
+                annee = int(elements[2].split("->")[1].strip())
+                nbpages = int(elements[3].split("->")[1].strip())
+
+                # Ajouter le livre à la bibliothèque
+                bibliothèque.append(Livre(titre, auteur, annee, nbpages))
+
+        # Réécriture complète de la bibliothèque dans le fichier binaire
         with open(fichierbinaire, "wb") as bin_file:
-            pickle.dump(bibliotheque_existante, bin_file)
-        
+            pickle.dump(bibliothèque, bin_file)
+
         print(f"La bibliothèque a été importée avec succès depuis le fichier '{fichierimport}'.")
 
     except FileNotFoundError:
         print(f"Le fichier '{fichierimport}' n'existe pas.")
     except IOError:
-        print(f"Erreur : Impossible de lire le fichier '{fichierimport}'.")
+        print(f"Erreur lors de la lecture du fichier '{fichierimport}'.")
 
 def lire_fichier_binaire(fichier: str) -> list[Livre]:
     """
-    Fonction qui lit un fichier binaire et affiche clairement son contenu
-    
-    Args:
-        fichier (str): Le nom du fichier binaire.
-    
-    Returns:
-        list[Livre]: La liste des livres du fichier binaire.
+    Fonction qui lit un fichier binaire contenant la bibliothèque complète.
     """
     try:
         with open(fichier, "rb") as file:
             bibliothèque = pickle.load(file)
-            print("Contenu du fichier binaire :")
-            for livre in bibliothèque:
-                print(livre)
-            sleep(5)
             return bibliothèque
-        
     except FileNotFoundError:
-        print(f"Le fichier '{fichier}' n'existe pas.")
+        print(f"Le fichier '{fichier}' n'existe pas. Une nouvelle bibliothèque sera créée.")
         return []
     except EOFError:
         print(f"Le fichier '{fichier}' est vide.")
         return []
+    except IOError:
+        print(f"Erreur lors de la lecture du fichier '{fichier}'.")
+        return []
+    
+
+def afficher_bibliotheque(fichierbin : str) -> None:
+    """
+    Fonction qui affiche l'ensemble des livres de la bibliothèque
+    Args:
+        bibliothèque (list[Livre]): la liste des livres de la bibliothèque
+    Returns:
+        None
+    """
+    bibliothèque = lire_fichier_binaire(fichierbin)
+    if not bibliothèque:
+        print("La bibliothèque est vide")
+        return
+
+    print("Bibliothèque :")
+    for livre in bibliothèque:
+        print("---------------------------------")
+        print(livre)
+    sleep(5)
 
 ############################################
 ############################################
@@ -373,14 +359,15 @@ if __name__ == "__main__":
     choix : int
 
     while True : 
-        choix = afficher_menu()
+        sleep(2)
+        print("\033c", end="")
         verification_fichierbinaire_existe('bibliothèque.bin')
-        chargement_biblio_binaire('bibliothèque.bin')
+        choix = afficher_menu()
 
         if choix == 1: 
-            lire_fichier_binaire('bibliothèque.bin')
+            afficher_bibliotheque('bibliothèque.bin')
         if choix == 2:
-            ajouter_livre(bibliothèque,ListeAuteurs,'bibliothèque.bin')
+            ajouter_livre('bibliothèque.bin',ListeAuteurs)
         if choix == 3:
             ajouter_auteur(ListeAuteurs)
         if choix == 4:
