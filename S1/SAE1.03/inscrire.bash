@@ -17,6 +17,8 @@
 if [ $# -ne 4 ]
 then
     echo "Il manque des arguments, il doit y en avoir 4"
+    echo "Au format suivant: inscrire.bash -a nom prénom adresse"
+    echo "Au format suivant: inscrire.bash -l nombre_exemplaires titre auteur"
     exit 1
 fi
 
@@ -88,7 +90,7 @@ if [ $1 = "-l" ]
 then
     for i in $(seq 1 $2)
     do
-        echo -e "$IDli;$i;disponible" >> exemplaires.txt
+        echo -e "$IDli;$i;oui" >> exemplaires.txt
     done
 fi
 ############################################
