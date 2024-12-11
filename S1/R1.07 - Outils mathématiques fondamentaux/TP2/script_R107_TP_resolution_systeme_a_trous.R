@@ -185,27 +185,36 @@ all.equal(matriceB, as.matrix(rowadd(matriceA,1,3,-1/6)))
 #' @export
 #'
 #' @examples
-echelonneUneMatrice <- function(matriceA){
+
+echelonneUneMatrice <- function(matriceA) {
   nbLignes <- nrow(matriceA)
   nbColonnes <- ncol(matriceA)
-  for (i in 1:nbLignes){
-    if (matriceA[i,i] == 0){
-      for (j in (i+1):nbLignes){
-        if (matriceA[j,i] != 0){
-          matriceA <- echangeDeuxLignesDUneMatrice(matriceA,i,j)
+  maxIndice <- min(nbLignes, nbColonnes) # Limite pour i
+  
+  for (i in 1:maxIndice) {
+    if (i > nbLignes || i > nbColonnes) break  # Vérification explicite des limites
+    
+    if (matriceA[i, i] == 0) {
+      for (j in (i+1):nbLignes) {
+        if (j > nbLignes) break  # Protection dans la sous-boucle
+        if (matriceA[j, i] != 0) {
+          matriceA <- echangeDeuxLignesDUneMatrice(matriceA, i, j)
           break
         }
       }
     }
-    if (matriceA[i,i] != 0){
-      matriceA <- multiplierUneLigneDUneMatriceParUnScalaire(matriceA,i,1/matriceA[i,i])
-      for (j in (i+1):nbLignes){
-        matriceA <- ajoutDUneLigneAUneAutre(matriceA,i,j,-matriceA[j,i])
+    if (matriceA[i, i] != 0) {
+      matriceA <- multiplierUneLigneDUneMatriceParUnScalaire(matriceA, i, 1 / matriceA[i, i])
+      for (j in (i+1):nbLignes) {
+        if (j > nbLignes) break  # Vérification explicite
+        matriceA <- ajoutDUneLigneAUneAutre(matriceA, i, j, -matriceA[j, i])
       }
     }
   }
   return(mettreValeurMatriceAZero(matriceA))
 }
+
+
 
 matriceG <- creationMatrice(c(0,0,1,2),2,2)
 matriceG
@@ -247,6 +256,7 @@ all.equal(matriceFEchelonnee <- echelonneUneMatrice(matriceF), as.matrix(matrice
 #' @export
 #'
 #' @examples
+
 echelonneEtReduitUneMatrice <- function(matriceA){
   nbLignes <- nrow(matriceA)
   nbColonnes <- ncol(matriceA)
@@ -382,14 +392,122 @@ matriceSolutionDuSystemeAC
 
 ############################### Systeme A  ###############################
 
+A = 2,3,1  | 4
+    1,1,2  | 3
+    7,3,-5 | 2
+    
+    2,3,1  | 4
+    0,-1,3 | 1
+    0,0,-12| -26
+    
+    2,3,1  | 4
+    0,-1,3 | 1
+    0,0,1  | 13/4
+    
+    2,3,0  | 1
+    0,-1,0 | 1
+    0,0,1  | 13/4
+    
+    2,0,0  | 1
+    0,-1,0 | 1
+    0,0,1  | 13/4
+    
+    1,0,0  | 1/2
+    0,1,0  | -1
+    0,0,1  | 13/4
+
 
 ############################### Systeme B  ###############################
-
+    
+B = 1,2,-2 | 0
+    2,0,-1 | 0
+    1,-2,0 | 0
+    
+    1,2,-2 | 0
+    0,-4,3 | 0
+    0,-4,1 | 0
+    
+    1,2,-2 | 0
+    0,-4,3 | 0
+    0,0,1  | 0
+    
+    1,0,0 | 0
+    0,1,0 | 0
+    0,0,1 | 0
 
 ############################### Systeme C  ###############################
+    
+C = 4,2,-1 | 0
+    3,-1,1 | 3
+    1,1,1  | 1
+    1,-1,1 | -2
+    
+    4,2,-1 | 0
+    0,-5,4 | 3
+    0,1,1  | 1
+    0,-3,2 | -2
+    
+    4,2,-1 | 0
+    0,-5,4 | 3
+    0,0,0  | 0
+    0,0,0  | 0
+    
+    4,2,-1 | 0
+    0,-5,4 | 3
+    
+    4,2,-1 | 0
+    0,1,0  | 1
+    
+    4,0,-1 | 0
+    0,1,0  | 1
+    
+    1,0,-1/4 | 0
+    0,1,0  | 1
 
 
 ############################### Systeme D  ###############################
+    
+D = 1,2,-2,4,1 | 0
+    0,2,3,-4,2 | 0
+    1,0,1,-2,3 | 0
+    1,1,4,-6,5 | 0
+    0,3,0,2,0  | 0
+    
+    1,2,-2,4,1 | 0
+    0,2,3,-4,2 | 0
+    0,-4,3,-6,2 | 0
+    0,-1,3,-6,4 | 0
+    0,3,0,2,0  | 0
+    
+    1,2,-2,4,1 | 0
+    0,2,3,-4,2 | 0
+    0,-4,3,-6,2 | 0
+    0,0,9,-10,6 | 0
+    0,0,9,-10,6 | 0
+    
+    1,2,-2,4,1 | 0
+    0,2,3,-4,2 | 0
+    0,0,9,-10,6 | 0
+    0,0,9,-10,6 | 0
+    0,0,9,-10,6 | 0
+    
+    1,2,-2,4,1 | 0
+    0,2,3,-4,2 | 0
+    0,0,9,-10,6 | 0
+    
+    
+    1,2,-2,4,1 | 0
+    0,2,3,-4,2 | 0
+    0,0,1,-10/9,2/3 | 0
+    
+    1,2,-2,4,1 | 0
+    0,2,0,-5,4 | 0
+    0,0,1,-10/9,2/3 | 0
+    
+    1,0,-2,14/9,1/3 | 0
+    0,1,0,-5/9,2/3 | 0
+    
+    
 
 
 
@@ -397,11 +515,83 @@ matriceSolutionDuSystemeAC
 ############################### Exercice 10 ##############################
 ##########################################################################
 
+A = 2,4,1
+    -1,1,-1
+    1,4,0
+    
+I3 = 1,0,0
+     0,1,0
+     0,0,1
+     
+#Pivot de Gauss sur A et I3 pour avoir (I3|B)
+    
+    2,4,1 | 1,0,0
+    -1,1,-1 | 0,1,0
+    1,4,0 | 0,0,1
+    
+    2,4,1 | 1,0,0
+    0,5,0 | 1,2,0
+    0,0,-1 | -1,0,1
+    
+    2,4,1 | 1,0,0
+    0,5,0 | 1,2,0
+    0,0,1 | 1,0,-1
+    
+    2,4,0 | 1,0,-1
+    0,5,0 | 1,2,0
+    0,0,1 | 1,0,-1
+    
+    2,0,0 | 1,-2,-1
+    0,5,0 | 1,2,0
+    0,0,1 | 1,0,-1
+    
+    1,0,0 | 1/2,-1,-1/2
+    0,1,0 | 1/5,2,0
+    0,0,1 | 1,0,-1
+    
+    1,0,0 | 1/2,-1,-1/2
+    0,1,0 | 1/5,2,0
+    0,0,1 | 1,0,-1
+    
+    1,0,0 | 1/2,-1,-1/2
+    0,1,0 | 1/5,2,0
+    0,0,1 | 1,0,-1
+    
+    1,0,0 | 1/2,-1,-1/2
+    0,1,0 | 1/5,2,0
+    0,0,1 | 1,0,-1
+    
+    1,0,0 | 1/2,-1,-1/2
+    0,1,0 | 1/5,2,0
+    0,0,1 | 1,0,-1
+    
+    1,0,0 | 1/2,-1,-1/2
+    0,1,0 | 1/5,2,0
+    0,0,1 | 1,0,-1
 
+B = 1/2,-1,-1/2
+    1/5,2,0
+    1,0,-1
+    
+A x B = 1/2 - 1 + 1/2 = 0
+        1/5 - 2 + 0 = 0
+        1 - 0 - 1 = 0
+
+#C'est égal à 0 
 
 ##########################################################################
 ############################### Exercice 11 ##############################
 ##########################################################################
+        
+A = 3,0,0
+    1,2,-1
+    1,-1,2
+    
+#Inverse de A
+
+
+    
+#A^2 - 4A + 3I
 
 
 
