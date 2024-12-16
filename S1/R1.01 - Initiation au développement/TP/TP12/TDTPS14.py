@@ -20,7 +20,8 @@ class ListeChainee:
 ############################################
 
 def longueur(li: ListeChainee) -> int:
-    """Fonction qui renvoie la longueur de la liste
+    """
+    Fonction qui renvoie la longueur de la liste
 
     Args:
         li (ListeChainee): la liste dont on veut connaître la longueur
@@ -38,7 +39,8 @@ def longueur(li: ListeChainee) -> int:
 ############################################
     
 def afficheLC(li: ListeChainee):
-    """Fonction qui affiche les éléments de la liste
+    """
+    Fonction qui affiche les éléments de la liste
 
     Dans cette version, chaque élément est affiché sur une ligne
 
@@ -53,7 +55,8 @@ def afficheLC(li: ListeChainee):
 ############################################
 
 def ajoutQueue(li: ListeChainee, val: int):
-    """Fonction qui ajoute un élément en queue de liste
+    """
+    Fonction qui ajoute un élément en queue de liste
 
     Args:
         li (ListeChainee): la liste à laquelle on veut ajouter un élément
@@ -77,7 +80,8 @@ def ajoutQueue(li: ListeChainee, val: int):
 ############################################
 
 def ajoutTete(li: ListeChainee, val: int):
-    """Fonction qui ajoute un élément en tête de liste
+    """
+    Fonction qui ajoute un élément en tête de liste
 
     Args:
         li (ListeChainee): la liste à laquelle on veut ajouter un élément
@@ -94,7 +98,8 @@ def ajoutTete(li: ListeChainee, val: int):
 ############################################
 
 def ajoutEnPos(li: ListeChainee, indice : int, val: int):
-    """Ajoute un élément à une position donnée dans la liste
+    """
+    Ajoute un élément à une position donnée dans la liste
 
     Args:
         li (ListeChainee): la liste à laquelle on veut ajouter un élément
@@ -118,7 +123,8 @@ def ajoutEnPos(li: ListeChainee, indice : int, val: int):
 ############################################
 
 def suppTete(li : ListeChainee):
-    """Supprime l'élément en tête de la liste
+    """
+    Supprime l'élément en tête de la liste
 
     Args:
         li (ListeChainee): la liste dont on veut supprimer la tête
@@ -131,7 +137,8 @@ def suppTete(li : ListeChainee):
 ############################################
 
 def suppQueue(li : ListeChainee):
-    """Supprime l'élément en queue de la liste
+    """
+    Supprime l'élément en queue de la liste
 
     Args:
         li (ListeChainee): la liste dont on veut supprimer la queue
@@ -154,7 +161,8 @@ def suppQueue(li : ListeChainee):
 ############################################
 
 def suppEnPos(li: ListeChainee, indice : int):
-    """Supprime un élément à une position donnée dans la liste
+    """
+    Supprime un élément à une position donnée dans la liste
 
     Args:
         li (ListeChainee): la liste dont on veut supprimer un élément
@@ -177,7 +185,8 @@ def suppEnPos(li: ListeChainee, indice : int):
 ############################################
 
 def recherche(li: ListeChainee, val : int) -> int :
-    """Recherche la première occurrence d'une valeur dans la liste
+    """
+    Recherche la première occurrence d'une valeur dans la liste
 
     Args:
         li (ListeChainee): la liste dans laquelle chercher
