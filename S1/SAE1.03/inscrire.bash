@@ -40,7 +40,6 @@ else
     exit 1
 fi
 
-
 #################################################################################
 #Vérif si un id est existant sinon commencer à 1 sinon incrémenter de 1 (MEMBRES)
 if [ ! -e membres.txt ]
