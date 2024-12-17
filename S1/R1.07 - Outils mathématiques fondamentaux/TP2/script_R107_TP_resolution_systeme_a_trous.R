@@ -77,6 +77,7 @@ multiplierUneLigneDUneMatriceParUnScalaire <- function(matriceA, ligne, scalaire
   return(matriceA)
 }
 
+matriceA
 matriceB <- multiplierUneLigneDUneMatriceParUnScalaire(matriceA, 1,-3)
 matriceB
 all.equal(matriceB, as.matrix(rowmult(matriceA,1,-3)))
@@ -103,7 +104,7 @@ matriceB
 all.equal(matriceB, as.matrix(rowadd(matriceA,3,1,-6)))
 
 matriceB <- ajoutDUneLigneAUneAutre(matriceA, 1, 3, -1/6)
-#as.matrix(fractions(matriceB))
+as.matrix(fractions(matriceB))
 fractions(matriceB)
 all.equal(matriceB, as.matrix(rowadd(matriceA,1,3,-1/6)))
 
@@ -589,8 +590,8 @@ A = 3,0,0
     
 #Inverse de A
 
+  
 
-    
 #A^2 - 4A + 3I
 
 
@@ -627,7 +628,9 @@ A = 3,0,0
 
 ############################### Question 2 a #############################
 # Facile à faire il faut simplement développer et utiliser le fait que k^^2 = -I
+    
 ############################### Question 2 b #############################
 #On montre facilement par le calcul de que l'inverse de M  est (2aI-M)/(a^2+b^2) 
+    
 ############################### Question 2 c #############################
 
