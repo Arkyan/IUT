@@ -1,7 +1,11 @@
+#!/bin/bash
+
 #Script qui a 2 arguments : Nom adhérent et titre du livre 
 #Vérif si le nombre d'arguments est bon
 # $1 : nom adhérent
 # $2 : titre du livre
+
+
 
 if [ $# -ne 2 ]
 then

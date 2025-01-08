@@ -1,6 +1,6 @@
-#script vérifiant les emprunts datant de plus d'un moins et les affichant
-
 #!/bin/bash
+
+#script vérifiant les emprunts datant de plus d'un moins et les affichant
 
 # Vérification du nombre d'arguments
 if [ $# -ne 0 ]; then

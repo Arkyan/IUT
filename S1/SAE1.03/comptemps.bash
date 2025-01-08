@@ -1,11 +1,11 @@
+#!/bin/bash
+
 #Script comparant la date courante à une date donnée en argument
 
 #$1 Jour dans le mois
 #$2 Mois
 #$3 Année
 #$4 Date courante (format : jour mois année heure:minute:seconde)
-
-#!/bin/bash
 
 # Vérif si le nombre d'arguments est bon
 if [ $# -ne 4 ]; then

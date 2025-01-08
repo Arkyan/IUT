@@ -1,9 +1,10 @@
+#!/bin/bash
+
 #Script qui prend en compte 2 arguments et qui vérifie leur validité
 #Puis contrôle si l'emprunt est bien enregistré dans le fichier
 #Si l'emprunt est enregistré, le script supprime la ligne dans le fichier
 #Et modifie le fichier de stock en ajoutant la ligne de l'exemplaire
 
-#!/bin/bash
 #Vérification du nombre d'arguments
 if [ $# -ne 2 ]; 
 then
