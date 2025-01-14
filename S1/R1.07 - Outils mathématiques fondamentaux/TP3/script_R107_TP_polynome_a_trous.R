@@ -109,7 +109,16 @@ suppressionCoefficientNul <- function(unPolynome) {
 #' @examples
 #' premierPolynome <- creationPolynome(c(2, 5,-1, 4,-2, 1,0, 3, 3, 0))
 creationPolynome <- function(unVecteurDeValeurs) {
-
+  if (length(unVecteurDeValeurs) %% 2 == 0) {
+    polynome <- list()
+    for (i in seq(1, length(unVecteurDeValeurs), by = 2)) {
+      polynome <- c(polynome, list(c(unVecteurDeValeurs[i], unVecteurDeValeurs[i + 1])))
+    }
+  } else{
+    print("Erreur. Le vecteur de valeurs doit avoir un nombre pair d'éléments.")
+    polynome <- list()
+  }
+  return(polynome)
 }
 
 premierPolynome <- creationPolynome(c(-1, 8, -2, 1, 0, 3, 2, 10, 3, 0))
@@ -165,7 +174,12 @@ estLePolynomeNul(unMonome)
 #' @examples
 #' degrePolynome1 <- degrePolynome(premierPolynome)
 degrePolynome <- function(unPolynome) {
-
+  if (length(unPolynome) == 0) {
+    degre <- 0
+  } else{
+    degre <- max(sapply(unPolynome, function(x) x[2]))
+  }
+  return(degre)
 }
 
 listePourAffichage <- list(premierPolynome, secondPolynome, troisiemePolynome, unMonome)
@@ -190,7 +204,10 @@ degreMonome
 #'
 #' @examples
 coefficientMonome <- function(unMonome) {
-
+  if (length(unMonome) == 0) {
+    print("Monome nul")
+  } else{
+    coefficient <- unMonome[[1]][1]
   }
 }
 listePourAffichage <- list(premierPolynome, secondPolynome, troisiemePolynome, unMonome)
@@ -218,9 +235,14 @@ coefficientUnMonome
 #'
 #' @examples
 #' affichagePolynome(premierPolynome)
-affichagePolynome <- function(unPolynome) {
 
+affichagePolynome <- function(unPolynome) {
+  if (length(unPolynome) == 0) {
+    print("Polynome nul")
+  } else{
+    print(unPolynome)
   }
+} 
 
 listePourAffichage <- list(premierPolynome, secondPolynome, troisiemePolynome, unMonome)
 lapply(listePourAffichage, affichagePolynome)
@@ -229,13 +251,19 @@ lapply(listePourAffichage, affichagePolynome)
 #'
 #' @param unPolynome
 #'
-#' @return un polynom trié suivant les puissances décroissantes
+#' @return un polynome trié suivant les puissances décroissantes
 #' @export
 #'
 #' @examples
 trierPolynome <- function(unPolynome) {
-  
+  if (length(unPolynome) != 0) {
+    unPolynomeTrie <- unPolynome[order(sapply(unPolynome, function(x) x[2]), decreasing = TRUE)]
+  } else{
+    unPolynomeTrie <- unPolynome
   }
+  return(unPolynomeTrie)
+  
+}
 
 premierPolynomeTrie <- trierPolynome(premierPolynome)
 affichagePolynome(premierPolynomeTrie)
@@ -253,7 +281,16 @@ affichagePolynome(premierPolynomeTrie)
 #' @examples
 #' premierPolynome <- creationPolynome(c(2, 5,-1, 4,-2, 1,0, 3, 3, 0))
 creationPolynome <- function(unVecteurDeValeurs) {
- 
+  if (length(unVecteurDeValeurs) %% 2 == 0) {
+    polynome <- list()
+    for (i in seq(1, length(unVecteurDeValeurs), by = 2)) {
+      polynome <- c(polynome, list(c(unVecteurDeValeurs[i], unVecteurDeValeurs[i + 1])))
+    }
+  } else{
+    print("Erreur. Le vecteur de valeurs doit avoir un nombre pair d'éléments.")
+    polynome <- list()
+  }
+  return(trierPolynome(polynome))
 }
 
 premierPolynome <- creationPolynome(c(-1, 8, -2, 1, 0, 3, 2, 10, 3, 0))
@@ -267,19 +304,18 @@ lapply(listePourAffichage, affichagePolynome)
 ############################### Exercice 6  ##############################
 ##########################################################################
 
-#' Somme de deux monômes de même degre
+#' Somme de deux monômes de même degré
 #'
 #' @param monomeA
 #' @param monomeB
 #'
-#' @return monomeA+ monomeB
+#' @return monomeA + monomeB
 #' @export
 #'
 #' @examples
 additionDeDeuxMonomes <- function(monomeA, monomeB) {
-
-  }
-
+  
+  
 
 #' Elimine les monomes doublons dans le polynôme résultat et le laisse trié
 #'
