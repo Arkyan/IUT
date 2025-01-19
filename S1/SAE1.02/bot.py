@@ -104,7 +104,7 @@ def bot_devinnette(difficulte: int, intervalle: int, retour_jeu: int, nbr_prec: 
         print(f"Le nombre donné par l'IA est {valeur_renvoye} (intervalle: [{borne_min}, {borne_max}])")
         return valeur_renvoye
         
-def bot_reponse_intervalle_devinette(nbr_devine : int, nbr_reponse : int) -> int:
+def bot_reponse_devinette(nbr_devine : int, nbr_reponse : int) -> int:
     """
     Fonction pour la réponse du bot pour la devinette.
     Args:
@@ -114,11 +114,13 @@ def bot_reponse_intervalle_devinette(nbr_devine : int, nbr_reponse : int) -> int
         int: La réponse du bot.
     """
     if nbr_devine < nbr_reponse :
-        return 0
-    elif nbr_devine > nbr_reponse :
         return 1
-    else :
+    elif nbr_devine > nbr_reponse :
         return 2
+    elif nbr_devine == nbr_reponse :
+        return 3
+    else :
+        return 0
     
 ############################################################################################################    
 # ──────────────────────────────────────────────────────────────
@@ -197,20 +199,20 @@ def bot_morpion(difficulte : int, grille : list[list[str]], jeu : int) -> list[l
     
     if difficulte == 1 :
         if jeu == 1 :
-            coord[0] = randint(0, 2)
-            coord[1] = randint(0, 2)
+            coord[0] = randint(0, len(grille)-1)
+            coord[1] = randint(0, len(grille)-1)
             while deja_pris(grille, coord[0], coord[1]) :
-                coord[0] = randint(0, 2)
-                coord[1] = randint(0, 2)
+                coord[0] = randint(0, len(grille)-1)
+                coord[1] = randint(0, len(grille)-1)
             grille[coord[0]][coord[1]] = "O"
             print(f"Le bot a joué en ligne {coord[0]+1} et colonne {coord[1]+1}")
             return grille
         else :
-            coord[0] = randint(0, 2)
-            coord[1] = randint(0, 2)
+            coord[0] = randint(0, len(grille)-1)
+            coord[1] = randint(0, len(grille)-1)
             while deja_pris(grille, coord[0], coord[1]) :
-                coord[0] = randint(0, 2)
-                coord[1] = randint(0, 2)
+                coord[0] = randint(0, len(grille)-1)
+                coord[1] = randint(0, len(grille)-1)
             grille[coord[0]][coord[1]] = "X"
             print(f"Le bot a joué en ligne {coord[0]+1} et colonne {coord[1]+1}")
             return grille
@@ -219,20 +221,20 @@ def bot_morpion(difficulte : int, grille : list[list[str]], jeu : int) -> list[l
         n = randint(0, 8)
         if n < 2 :
             if jeu == 1 :
-                coord[0] = randint(0, 2)
-                coord[1] = randint(0, 2)
+                coord[0] = randint(0, len(grille)-1)
+                coord[1] = randint(0, len(grille)-1)
                 while deja_pris(grille, coord[0], coord[1]) :
-                    coord[0] = randint(0, 2)
-                    coord[1] = randint(0, 2)
+                    coord[0] = randint(0, len(grille)-1)
+                    coord[1] = randint(0, len(grille)-1)
                 grille[coord[0]][coord[1]] = "O"
                 print(f"Le bot a joué en ligne {coord[0]+1} et colonne {coord[1]+1}")
                 return grille
             else :
-                coord[0] = randint(0, 2)
-                coord[1] = randint(0, 2)
+                coord[0] = randint(0, len(grille)-1)
+                coord[1] = randint(0, len(grille)-1)
                 while deja_pris(grille, coord[0], coord[1]) :
-                    coord[0] = randint(0, 2)
-                    coord[1] = randint(0, 2)
+                    coord[0] = randint(0, len(grille)-1)
+                    coord[1] = randint(0, len(grille)-1)
                 grille[coord[0]][coord[1]] = "X"
                 print(f"Le bot a joué en ligne {coord[0]+1} et colonne {coord[1]+1}")
                 return grille
@@ -261,11 +263,11 @@ def bot_morpion(difficulte : int, grille : list[list[str]], jeu : int) -> list[l
                             grille[i][j] = " "
 
                 #Si rien de tout cela n'est possible, le bot joue sur la premiere case vide
-                coord[0] = randint(0, 2)
-                coord[1] = randint(0, 2)
+                coord[0] = randint(0, len(grille)-1)
+                coord[1] = randint(0, len(grille)-1)
                 while deja_pris(grille, coord[0], coord[1]) :
-                    coord[0] = randint(0, 2)
-                    coord[1] = randint(0, 2)
+                    coord[0] = randint(0, len(grille)-1)
+                    coord[1] = randint(0, len(grille)-1)
                 grille[coord[0]][coord[1]] = "O"
                 print(f"Le bot a joué en ligne {coord[0]+1} et colonne {coord[1]+1}")
                 return grille
@@ -294,8 +296,8 @@ def bot_morpion(difficulte : int, grille : list[list[str]], jeu : int) -> list[l
 
                 #Si rien de tout cela n'est possible, le bot joue sur la premiere case vide
                 while deja_pris(grille, coord[0], coord[1]) :
-                    coord[0] = randint(0, 2)
-                    coord[1] = randint(0, 2)
+                    coord[0] = randint(0, len(grille)-1)
+                    coord[1] = randint(0, len(grille)-1)
                 grille[coord[0]][coord[1]] = "X"
                 print(f"Le bot a joué en ligne {coord[0]+1} et colonne {coord[1]+1}")
                 return grille
@@ -324,11 +326,11 @@ def bot_morpion(difficulte : int, grille : list[list[str]], jeu : int) -> list[l
                         grille[i][j] = " "
 
             #Si rien de tout cela n'est possible, le bot joue sur la premiere case vide
-            coord[0] = randint(0, 2)
-            coord[1] = randint(0, 2)
+            coord[0] = randint(0, len(grille)-1)
+            coord[1] = randint(0, len(grille)-1)
             while deja_pris(grille, coord[0], coord[1]) :
-                coord[0] = randint(0, 2)
-                coord[1] = randint(0, 2)
+                coord[0] = randint(0, len(grille)-1)
+                coord[1] = randint(0, len(grille)-1)
             grille[coord[0]][coord[1]] = "O"
             print(f"Le bot a joué en ligne {coord[0]+1} et colonne {coord[1]+1}")
             return grille
@@ -357,11 +359,11 @@ def bot_morpion(difficulte : int, grille : list[list[str]], jeu : int) -> list[l
                         grille[i][j] = " "
 
             #Si rien de tout ça est possible, le bot joue sur une case aléatoire
-            coord[0] = randint(0, 2)
-            coord[1] = randint(0, 2)
+            coord[0] = randint(0, len(grille)-1)
+            coord[1] = randint(0, len(grille)-1)
             while deja_pris(grille, coord[0], coord[1]) :
-                coord[0] = randint(0, 2)
-                coord[1] = randint(0, 2)
+                coord[0] = randint(0, len(grille)-1)
+                coord[1] = randint(0, len(grille)-1)
             grille[coord[0]][coord[1]] = "X"
             print(f"Le bot a joué en ligne {coord[0]+1} et colonne {coord[1]+1}")
             return grille  

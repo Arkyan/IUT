@@ -310,7 +310,7 @@ def listejoueur(jeux: str, mode_jeu : int) -> List[str]:
             joueurs.append(nom_normalise)
             compteur += 1
 
-        # Enregistrer les joueurs et leur score initial (0) dans le fichier
+        # Enregistrer le joueurs et son score initial (0) dans le fichier
         for joueur in joueurs:
             enregistrer_score_binaire(jeux, joueur, 0)
 
@@ -614,29 +614,9 @@ def choix_mode_jeu() -> int:
     switch(liste_mode)
     mode = int(inputCustom("\033[33mEntrez le numéro correspondant au mode de jeu choisi : \033[0m", int, "La valeur doit être un entier", 1, 3))
     print(f"Mode de jeu choisi : {liste_mode[mode - 1]}")
+    sleep(1)
 
     return mode
-
-##################
-
-def siIA(listejoueur : List[str]) -> int :
-    """
-    Fonction pour savoir si l'IA joue 
-    Args:
-        None : None
-    Returns:
-        None : None
-    """
-    ia : int
-    ia = 0
-
-    for i in range(len(listejoueur)) :
-        i = i 
-        if listejoueur[1] == "IA1" :
-            ia = 1
-        if listejoueur[1] == "IA2" :
-            ia = 2
-    return ia
 
 ##################################################################################################################
 ##################################################################################################################
