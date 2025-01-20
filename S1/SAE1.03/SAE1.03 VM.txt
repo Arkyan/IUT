@@ -1,0 +1,18 @@
+
+PERSO : 
+username : root
+mdp : Vm673920;@
+
+username : arkyan
+mdp : Arkyanvm25
+
+
+
+Script :
+cd Onedrive/Documents/GitHub/IUT/S1/SAE1.03
+
+
+User par groupe : 
+1e année : test1annee / Testannee
+2e année : test2annee / Testannee
+3e année : test3annee / Testannee
