@@ -8,6 +8,7 @@ void permut(int a, int b) {
     a=b;
     b=c;
 }
+
 int main(void)
 {
   int n1=5;
