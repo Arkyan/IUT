@@ -13,6 +13,7 @@ int main(void) {
     {
     p=malloc(0x80000000);
     printf("p= %p\n", p);
+    free(p);
     if (p==0)
       {
       printf("Malloc renvoie 0 !!Erreur ! \n");
