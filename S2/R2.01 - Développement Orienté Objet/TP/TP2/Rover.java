@@ -1,5 +1,5 @@
 public class Rover {
-    private Position position;
+    private final Position position;
     private Direction direction;
     private final String name;
 
