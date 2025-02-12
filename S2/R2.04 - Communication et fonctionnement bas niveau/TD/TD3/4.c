@@ -17,12 +17,11 @@ void mettre_en_majuscule(char *str) {
 
 int donner_longueur(char *str) {
     char *p = str;
-    int longueur = 0;
-    while (*p != '\0') {
-        longueur++;
-        p++;
+    char *q = str;
+    while (*q != '\0') {
+        q++;
     }
-    return longueur;
+    return q - p;
 }
 
 void inverser(char *str) {
