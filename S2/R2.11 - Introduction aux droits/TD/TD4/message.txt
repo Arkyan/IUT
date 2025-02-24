@@ -1,0 +1,138 @@
+Exercice 1 : Licenciement pour inaptitude
+Questions :
+
+L'employeur a-t-il respecté la procédure de licenciement pour inaptitude ?
+
+Oui, l'employeur semble avoir respecté la procédure. Il a cherché à reclasser Monsieur Dupont après que le médecin du travail l'ait déclaré inapte à tout poste de manutention. En l'absence de solution de reclassement viable, l'employeur est en droit de procéder au licenciement pour inaptitude.
+
+Quelles sont les obligations de l'employeur avant de licencier un salarié inapte ?
+
+L'employeur doit :
+
+Obtenir un avis du médecin du travail confirmant l'inaptitude.
+
+Tenter de reclasser le salarié sur un autre poste compatible avec son état de santé.
+
+Si le reclassement est impossible, l'employeur peut procéder au licenciement pour inaptitude, en respectant les formalités légales (notification du licenciement, respect des délais, etc.).
+
+Quels sont les droits de Monsieur Dupont suite à ce licenciement ?
+
+Monsieur Dupont a droit :
+
+À une indemnité de licenciement pour inaptitude.
+
+À une indemnité compensatrice de préavis (si applicable).
+
+À une indemnité compensatrice de congés payés.
+
+À une prise en charge par l'Assurance Maladie pour les éventuelles conséquences de son accident du travail.
+
+Exercice 2 : Licenciement pour faute grave
+Questions :
+
+La faute grave est-elle caractérisée ?
+
+Oui, la faute grave est caractérisée. Le détournement de la caisse de l'entreprise pour un usage personnel constitue une violation grave des obligations du contrat de travail, justifiant un licenciement pour faute grave.
+
+L'employeur est-il obligé de respecter un préavis dans ce cas ?
+
+Non, en cas de faute grave, l'employeur n'est pas obligé de respecter un préavis. Le licenciement peut être effectif immédiatement.
+
+Quels sont les recours possibles pour Madame Leroy ?
+
+Madame Leroy peut contester le licenciement devant le conseil de prud'hommes si elle estime que la faute grave n'est pas justifiée ou que la procédure n'a pas été respectée. Elle peut également demander des dommages et intérêts si elle estime que le licenciement est abusif.
+
+Exercice 3 : Période d'essai et licenciement
+Questions :
+
+L'employeur a-t-il le droit de rompre le contrat pendant la période d'essai ?
+
+Oui, l'employeur a le droit de rompre le contrat pendant la période d'essai, à condition de respecter un délai de prévenance (généralement 24 ou 48 heures selon la durée de la période d'essai).
+
+Monsieur Petit peut-il contester cette décision ?
+
+Monsieur Petit peut contester la décision s'il estime que la rupture de la période d'essai est abusive (par exemple, si elle est motivée par des raisons discriminatoires ou si l'employeur n'a pas respecté le délai de prévenance).
+
+Quelles obligations l'employeur doit-il respecter ?
+
+L'employeur doit :
+
+Respecter le délai de prévenance pour rompre la période d'essai.
+
+Motiver la rupture si elle intervient à l'initiative de l'employeur (sauf dans les cas où la motivation n'est pas obligatoire).
+
+Exercice 4 : Contrat à durée déterminée (CDD) et rupture anticipée
+Questions :
+
+L'employeur peut-il rompre un CDD avant son terme ?
+
+Oui, mais uniquement dans des cas spécifiques prévus par la loi, tels que la faute grave, l'inaptitude, ou un accord mutuel entre les parties.
+
+Quels sont les motifs légaux de rupture anticipée d'un CDD ?
+
+Les motifs légaux incluent :
+
+La faute grave du salarié.
+
+L'inaptitude médicalement constatée.
+
+Un accord mutuel entre l'employeur et le salarié.
+
+La force majeure (événement imprévisible et insurmontable).
+
+Quels sont les droits de Monsieur Lambert ?
+
+Monsieur Lambert a droit :
+
+À une indemnité compensatrice égale au montant des salaires qu'il aurait perçus jusqu'à la fin du CDD.
+
+À une indemnité de congés payés.
+
+À une indemnité de précarité (si applicable).
+
+Exercice 5 : Licenciement sans période d'essai mentionnée
+Questions :
+
+L'absence de mention d'une période d'essai a-t-elle une incidence sur la rupture du contrat ?
+
+Oui, si le contrat ne mentionne pas de période d'essai, il est considéré comme un CDI sans période d'essai. L'employeur ne peut donc pas rompre le contrat de manière simplifiée comme il le ferait pendant une période d'essai.
+
+L'employeur a-t-il respecté la procédure légale pour un licenciement ?
+
+Non, l'employeur doit respecter une procédure de licenciement classique, avec convocation à un entretien préalable, notification du licenciement, et respect des motifs réels et sérieux.
+
+Monsieur Deschamps a-t-il des chances d'obtenir gain de cause ?
+
+Oui, si le licenciement est jugé abusif (par exemple, si l'incompatibilité avec l'esprit d'équipe n'est pas suffisamment étayée), Monsieur Deschamps pourrait obtenir des dommages et intérêts.
+
+Exercice 6 : Contrat et mutation forcée
+Questions :
+
+L'employeur peut-il imposer une mutation à un salarié sans son accord ?
+
+Non, une mutation géographique (surtout si elle implique un changement de lieu de travail important) nécessite l'accord du salarié, sauf si le contrat de travail prévoit explicitement cette possibilité.
+
+Monsieur Bernard a-t-il des recours face à cette situation ?
+
+Oui, Monsieur Bernard peut contester la mutation devant les prud'hommes et refuser la mutation. Si l'employeur engage une procédure de licenciement, Monsieur Bernard peut contester celle-ci.
+
+Le licenciement pour faute grave est-il justifié dans ce cas ?
+
+Non, le refus d'une mutation forcée ne constitue pas une faute grave. Le licenciement pour faute grave serait donc injustifié.
+
+Exercice 7 : Droit numérique et confidentialité des données
+Questions :
+
+Le stockage de données clients sur un appareil personnel constitue-t-il une infraction au RGPD ?
+
+Oui, le stockage de données clients sensibles sur un appareil personnel constitue une violation du RGPD, car cela expose les données à des risques de sécurité et de confidentialité.
+
+Quelles sanctions l'employeur peut-il appliquer dans ce cas ?
+
+L'employeur peut appliquer des sanctions disciplinaires, allant d'un avertissement à un licenciement pour faute grave, selon la gravité de la violation.
+
+Monsieur Lefebvre peut-il contester la sanction si elle est disproportionnée ?
+
+Oui, Monsieur Lefebvre peut contester la sanction devant les prud'hommes s'il estime qu'elle est disproportionnée par rapport à la faute commise.
+
+Conclusion : Ces exercices illustrent les différentes situations de rupture de contrat de travail et les droits et obligations des parties concernées. Il est essentiel de respecter les procédures légales pour éviter des litiges coûteux.
