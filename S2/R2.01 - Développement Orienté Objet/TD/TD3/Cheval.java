@@ -6,4 +6,8 @@ public class Cheval {
         this.nom = nom;
         this.race = race;
     }
+
+    public String decrire() {
+        return this.nom + " de race " + this.race;
+        }
 }

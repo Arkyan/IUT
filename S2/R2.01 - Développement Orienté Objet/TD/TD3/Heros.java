@@ -15,4 +15,8 @@ public class Heros extends PersonnageFarWest {
     public void attraper(Bandit bandit){
         //TODO
     }
+
+    public String decrire() {
+        return this.prenom + " " + this.nom + "!" + "Je suis " + this.profession + " mon cheval est " + this.cheval.decrire();
+    }
 }

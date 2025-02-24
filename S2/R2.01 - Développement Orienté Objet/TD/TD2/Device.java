@@ -22,6 +22,6 @@ public class Device {
     }
 
     public String toString() {
-        return "The " + this.name + " was invented in " + this.inventionYear;
+        return "The " + this.name + " was invented in " + this.inventionYear + ". ";
     }
 }

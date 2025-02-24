@@ -10,4 +10,5 @@ public class PersonnageFarWest {
     public void tirerAuPistolet(){
         //TODO
     }
+
 }

@@ -24,30 +24,37 @@ int main() {
     }
 
     printf("\nCouleurs en majuscule :\n");
-    i = 0;
-    while (couleur[i] != NULL) {
-        int j = 0;
-        while (couleur[i][j] != '\0') {
-            char c = couleur[i][j];
-            if (c >= 'a' && c <= 'z') { // Convertir en majuscule manuellement
-                c = c - ('a' - 'A');
+    char **p = couleur; // Pointeur sur le tableau de chaînes
+
+    while (*p != NULL) { // Tant qu'on n'atteint pas le NULL final
+        char *c = *p; // Pointeur sur la chaîne actuelle
+
+        while (*c != '\0') { // Tant qu'on n'atteint pas la fin de la chaîne
+            char ch = *c;
+            if (ch >= 'a' && ch <= 'z') { // Convertir en majuscule
+                ch = ch - ('a' - 'A');
             }
-            printf("%c", c);
-            j++;
+            printf("%c", ch);
+            c++; // Avancer dans la chaîne
         }
+
         printf("\n");
-        i++;
+        p++; // Passer à la chaîne suivante
     }
 
     printf("\nCouleurs sans utiliser %%s :\n");
-    i = 0;
-    while (couleur[i] != NULL) {
-        int j = 0;
-        while (couleur[i][j] != '\0') {
-            putchar(couleur[i][j]); // Affiche caractère par caractère
+    char **z = couleur; // Pointeur sur le tableau de chaînes
+
+    while (*z != NULL) { // Tant qu'on n'atteint pas NULL
+        char *c = *z; // Pointeur sur la chaîne actuelle
+
+        while (*c != '\0') { // Parcourt chaque caractère
+            printf("%c", *c); // Affiche chaque caractère avec printf
+            c++; // Avancer dans la chaîne
         }
-        putchar('\n');
-        i++;
+
+        printf("\n"); // Nouvelle ligne après chaque couleur
+        z++; // Passer à la chaîne suivante
     }
 
     return 0;

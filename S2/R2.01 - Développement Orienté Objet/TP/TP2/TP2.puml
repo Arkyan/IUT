@@ -1,0 +1,37 @@
+@startuml
+
+class Position {
+    - Integer x
+    - Integer y
+    + Position(Integer x, Integer y)
+    + Integer getX()
+    + Integer getY()
+    + void setX(Integer x)
+    + void setY(Integer y)
+    + String toString()
+}
+
+enum Direction {
+    NORTH, EAST, SOUTH, WEST
+}
+
+class Rover {
+    - Position position
+    - Direction direction
+    - String name
+    + Rover(Position position, Direction direction, String name)
+    + Rover(Integer x, Integer y, Direction direction, String name)
+    + Rover()
+    + Position getPosition()
+    + Direction getDirection()
+    + String getLocation()
+    + String toString()
+    + void move()
+    + void turnLeft()
+    + void turnRight()
+}
+
+Position "1" *-- "1" Rover
+Direction "1" *-- "1" Rover
+
+@enduml

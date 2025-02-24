@@ -10,7 +10,7 @@ public class ComputerPioneer {
     }
 
     public String toString() {
-        return this.lastName + this.firstName + " is a computer pioneer";
+        return this.firstName +" "+ this.lastName + " is a computer pioneer";
     }
 
     public Boolean worksOn(Device device) {
