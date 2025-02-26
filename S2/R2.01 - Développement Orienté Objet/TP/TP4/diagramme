@@ -1,0 +1,22 @@
+@startuml
+class honey_bee {
+    +doYourJob() : String
+    +fly() : String
+}
+
+class Drone {
+    +doYourJob() : String
+}
+
+class Worker {
+    +doYourJob() : String
+}
+
+class Queen {
+    +doYourJob() : String
+}
+
+honey_bee <|-- Drone
+honey_bee <|-- Worker
+honey_bee <|-- Queen
+@enduml

@@ -1,13 +1,6 @@
-public abstract class HoneyBee {
-
-    protected final String name;
-
-    protected HoneyBee(String name){
-        this.name = name;
-    }
-
+public class HoneyBee {
     public String doYourJob() {
-        return this.name + " I'm a HoneyBee";
+        return " I'm a HoneyBee";
     }
 
     public String fly() {
