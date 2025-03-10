@@ -5,6 +5,8 @@ import montagne.metier.Sommet;
 import montagne.metier.ChaineDeMontagne;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class MontagneMain {
@@ -34,8 +36,40 @@ public class MontagneMain {
         Console.message("..");
 
         // Tri des sommets par altitude
-        Console.titre("Sommets triés par altitude décroissante");
-        sommets.sort(null);
+        Console.titre("Sommets triés par altitude décroissante avec sort");
+        Collections.sort(sommets);
+        for (Sommet sommet : sommets) {
+            Console.message(sommet.description());
+        }
+
+        class ComparateurAltitude implements Comparator<Sommet> {
+            @Override
+            public int compare(Sommet sommet1, Sommet sommet2) {
+                return sommet1.altitude().compareTo(sommet2.altitude());
+            }
+        }
+
+        class ComparateurNom implements Comparator<Sommet> {
+            @Override
+            public int compare(Sommet sommet1, Sommet sommet2) {
+                return sommet1.nom().compareTo(sommet2.nom());
+            }
+        }
+
+        Console.message("..");
+        Console.message("..");
+
+        Console.titre("Sommets triés par altitude avec comparator");
+        Collections.sort(sommets, new ComparateurAltitude());
+        for (Sommet sommet : sommets) {
+            Console.message(sommet.description());
+        }
+
+        Console.message("..");
+        Console.message("..");
+
+        Console.titre("Sommets triés par nom avec comparator");
+        Collections.sort(sommets, new ComparateurNom());
         for (Sommet sommet : sommets) {
             Console.message(sommet.description());
         }
