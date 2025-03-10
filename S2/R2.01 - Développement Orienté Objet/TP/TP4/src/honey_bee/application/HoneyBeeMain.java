@@ -12,7 +12,6 @@ public class HoneyBeeMain {
         collectionOfHoneyBees();
     }
 
-
     private static void someHoneyBees() {
         Console.title("Some honeybees");
 
@@ -117,4 +116,3 @@ public class HoneyBeeMain {
         Console.message("My collection has " + droneCount + " drones");
     }
 }
-
