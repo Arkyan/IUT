@@ -1,0 +1,4 @@
+Hello world !
+git was created by Linus Torvalds in 2005
+I'm using git !
+git is a Distributed version control system
