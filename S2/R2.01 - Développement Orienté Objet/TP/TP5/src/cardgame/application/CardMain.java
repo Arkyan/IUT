@@ -8,7 +8,6 @@ public class CardMain {
 		createCard();
 		transformEachSuitElementIntoRightCode();
 		transformEachRankElementIntoRightCode();
-		
 	}
 
 	private static void createCard() {
