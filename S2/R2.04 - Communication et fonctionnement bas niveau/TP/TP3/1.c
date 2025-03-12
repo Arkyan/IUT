@@ -24,6 +24,8 @@ int main() {
     }
 
     printf("\nCouleurs en majuscule :\n");
+
+
     char **p = couleur; // Pointeur sur le tableau de chaînes
 
     while (*p != NULL) { // Tant qu'on n'atteint pas le NULL final
