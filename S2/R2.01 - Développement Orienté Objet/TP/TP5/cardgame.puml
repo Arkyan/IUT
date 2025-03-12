@@ -1,0 +1,43 @@
+@startuml
+
+package cardgame.model {
+    class Card {
+        - final Rank rank
+        - final Suit suit
+        + Card(Rank rank, Suit suit)
+        + Rank rank()
+        + Suit suit()
+        + String toText()
+        + String toString()
+    }
+
+    enum Suit {
+        CLUBS
+        DIAMONDS
+        HEARTS
+        SPADES
+        + String code()
+    }
+
+    enum Rank {
+        ACE
+        TWO
+        THREE
+        FOUR
+        FIVE
+        SIX
+        SEVEN
+        EIGHT
+        NINE
+        TEN
+        JACK
+        QUEEN
+        KING
+        + String code()
+    }
+
+    Card --> Rank
+    Card --> Suit
+}
+
+@enduml
