@@ -31,6 +31,12 @@ public abstract class Canard{
 		return comportementCancan.cancaner();
 	}
 	
+	public void changerComportementVol(ComportementVol comportementVol) {
+		this.comportementVol = comportementVol;
+	}
 	
+	public void changerComportementCancan(ComportementCancan comportementCancan) {
+		this.comportementCancan = comportementCancan;
+	}
 
 }

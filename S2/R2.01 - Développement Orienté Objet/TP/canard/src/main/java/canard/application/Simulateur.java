@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import canard.model.*;
+import canard.model.cancan.*;
+import canard.model.vol.NePasVoler;
+import canard.model.vol.VolerAvecDesAiles;
 
 public class Simulateur {
 
@@ -19,10 +22,10 @@ public class Simulateur {
 
 	private static List<Canard> mettreDesCanardsDansMonSimulateur() {
 		List<Canard> canards = new ArrayList<>();
-		canards.add(new Colvert("Piero"));
-		canards.add(new Leurre("Danny"));
-		canards.add(new Mandarin("Oshidori"));
-		canards.add(new CanardEnPlastique("Rubber"));
+		canards.add(new Colvert("Piero", new VolerAvecDesAiles(), new Cancan()));
+		canards.add(new Leurre("Danny", new NePasVoler(), new CanardMuet()));
+		canards.add(new Mandarin("Oshidori", new VolerAvecDesAiles(), new Cancan()));
+		canards.add(new CanardEnPlastique("Rubber", new NePasVoler(), new Coincoin()));
 		return canards;
 	}
 
@@ -34,6 +37,8 @@ public class Simulateur {
 		for (Canard canard : canards) {
 			System.out.println(canard.getNom() + " : " + canard.afficher());
 			System.out.println(canard.nager());
+			System.out.println(canard.effectuerVol());
+			System.out.println(canard.effectuerCancan());
 		}
 	}
 }

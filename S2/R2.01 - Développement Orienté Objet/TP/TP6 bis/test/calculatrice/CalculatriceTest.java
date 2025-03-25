@@ -3,6 +3,9 @@ package calculatrice;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
+import calculatrice.model.Calculatrice;
+import calculatrice.util.DivisionParZeroException;
+
 class CalculatriceTest {
 
 	@Test
@@ -33,7 +36,7 @@ class CalculatriceTest {
 	}
 	
 	@Test
-	void doitDiviserDeuxEntiers() {
+	void doitDiviserDeuxEntiers() throws DivisionParZeroException {
 		Calculatrice calculatrice = new Calculatrice();
 		int dividende = 42;
 		int diviseur = 2;
@@ -42,9 +45,11 @@ class CalculatriceTest {
 	}
 	
 	@Test
-	void doitLeverUneArithmeticExceptionSiDivisionParZéro() {
+	void doitLeverUneDivisionParZeroException() {
 		Calculatrice calculatrice = new Calculatrice();
-		assertThrows(ArithmeticException.class, () -> calculatrice.diviser(42, 0));
+		int dividende = 42;
+		int diviseur = 0;
+		assertThrows(DivisionParZeroException.class, () -> calculatrice.diviser(dividende, diviseur));
 	}
 	
 }
