@@ -1,4 +1,4 @@
-package computerpioneer.model;
+ package computerpioneer.model;
 
 public class ComputerPioneer {
     private final String lastName;
