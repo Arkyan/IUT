@@ -12,12 +12,11 @@ class CanardTest {
 	private static final String NAGER = "Tous les canards flottent, même les leurres!";
 
 	private static final String VOLER = "Je vole !";
-	private static final String NE_PAS_VOLER = "Je ne sais pas voler";
-	private static final String REACTEUR = "Je vole avec un réacteur !";
+	private static final String NE_PAS_VOLER = "Je ne sais pas voler !";
 
 	private static final String CANCAN = "Can-can";
 	private static final String COINCOIN = "Coin-coin";
-	private static final String SILENCE = "...Silence...";
+	private static final String SILENCE = "Silence";
 
 	Canard colvert;
 	Canard leurre;
@@ -27,11 +26,11 @@ class CanardTest {
 
 	@BeforeEach
 	private void extracted() {
-		colvert = new Colvert("Piero", new VolerAvecDesAiles(), new Cancan());
-		leurre = new Leurre("Danny", new NePasVoler(), new CanardMuet());
-		mandarin = new Mandarin("Oshidori", new VolerAvecDesAiles(), new Cancan());
-		canardPlastique = new CanardEnPlastique("Rubber", new NePasVoler(), new Coincoin());
-		prototype = new PrototypeCanard("Prototype", new VolerAvecDesAiles(), new Cancan());
+		colvert = new Colvert("Piero");
+		leurre = new Leurre("Danny");
+		mandarin = new Mandarin("Oshidori");
+		canardPlastique = new CanardEnPlastique("Rubber");
+		prototype = new PrototypeCanard("Prototype");
 	}
 
 	@Test
@@ -45,7 +44,7 @@ class CanardTest {
 
 		assertEquals(NE_PAS_VOLER, leurre.effectuerVol());
 		assertEquals(NE_PAS_VOLER, canardPlastique.effectuerVol());
-		assertEquals(REACTEUR, prototype.effectuerVol());
+		assertEquals(NE_PAS_VOLER, prototype.effectuerVol());
 	}
 
 	@Test
@@ -60,7 +59,6 @@ class CanardTest {
 
 	@Test
 	public void test_nager() {
-
 		assertEquals(NAGER, colvert.nager());
 		assertEquals(NAGER, mandarin.nager());
 

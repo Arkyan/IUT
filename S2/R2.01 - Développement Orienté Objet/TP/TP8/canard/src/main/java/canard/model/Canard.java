@@ -16,11 +16,11 @@ public abstract class Canard{
 	}
 	
 	public String nager() {
-		return "Tous les canards flottent, même les leurres !";
+		return "Tous les canards flottent, même les leurres!";
 	}
 	
 	public String afficher() {
-		return "Je suis un canard et je m'appelle " + nom;
+		return "Je suis un vrai canard";
 	}
 
 	public String effectuerVol() {

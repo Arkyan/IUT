@@ -1,19 +1,21 @@
 package canard.model;
 
+import canard.model.cancan.Cancan;
 import canard.model.cancan.ComportementCancan;
 import canard.model.vol.ComportementVol;
+import canard.model.vol.VolerAvecDesAiles;
 
 public class Mandarin extends Canard {
 	
-	public Mandarin(String nom, ComportementVol comportementVol, ComportementCancan comportementCancan) {
+	public Mandarin(String nom) {
 		super(nom);
-		this.comportementVol = comportementVol;
-		this.comportementCancan = comportementCancan;
+		this.comportementVol = new VolerAvecDesAiles();
+		this.comportementCancan = new Cancan();
 	}
 	
 	@Override
 	public String afficher() {
-		return "Je suis un mandarin et je m'appelle " + getNom();
+		return "Je suis un vrai mandarin";
 	}
 	
 	

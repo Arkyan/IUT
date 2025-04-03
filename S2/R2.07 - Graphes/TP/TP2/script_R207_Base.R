@@ -171,6 +171,62 @@ trouverCycles = function(graphe) {
 
 
 
+library(igraph)
+
+find_eulerian_path <- function(graph) {
+  # Vérifier la connectivité en tenant compte de l'orientation
+  if (!is_connected(graph, mode = "weak")) {
+    return(NULL)  # Pas de chemin eulérien si le graphe n'est pas faiblement connexe
+  }
+  
+  # Calcul des degrés entrants et sortants
+  in_deg <- degree(graph, mode = "in")
+  out_deg <- degree(graph, mode = "out")
+  
+  # Identifier les sommets avec déséquilibre entrant/sortant
+  start_vertex <- NULL
+  end_vertex <- NULL
+  for (v in V(graph)) {
+    diff <- out_deg[v] - in_deg[v]
+    if (diff == 1) {
+      if (!is.null(start_vertex)) return(NULL)  # Plus d'un sommet de départ → pas de chemin eulérien
+      start_vertex <- v
+    } else if (diff == -1) {
+      if (!is.null(end_vertex)) return(NULL)  # Plus d'un sommet d'arrivée → pas de chemin eulérien
+      end_vertex <- v
+    } else if (diff != 0) {
+      return(NULL)  # Si un sommet a un déséquilibre autre que ±1 → pas de chemin eulérien
+    }
+  }
+  
+  # Si aucun sommet de départ identifié, prendre un sommet arbitraire
+  if (is.null(start_vertex)) {
+    start_vertex <- V(graph)[1]
+  }
+  
+  # Copie du graphe
+  g <- graph
+  path <- c()
+  
+  # Fonction récursive pour trouver le chemin eulérien
+  eulerian_helper <- function(v) {
+    while (degree(g, v, mode = "out") > 0) {
+      edges <- incident(g, v, mode = "out")  # Arêtes sortantes
+      next_edge <- edges[1]  # Première arête disponible
+      next_vertex <- ends(g, next_edge)[2]  # Sommet cible
+      
+      g <<- delete_edges(g, next_edge)  # Supprimer l'arête parcourue
+      eulerian_helper(next_vertex)  # Continuer le parcours
+    }
+    path <<- c(v, path)  # Ajouter le sommet au chemin final
+  }
+  
+  eulerian_helper(start_vertex)
+  return(path)
+}
+
+
+
 
 #' Création de l'arbre résultat d'un parcours  soit en profondeur soit en largeur
 #'
@@ -240,7 +296,7 @@ matrice3 <- matrix(c(
 
 #Crée le graph
 graphe3 <- graph_from_adjacency_matrix(matrice3, mode = "undirected")
-plot(graphe3)
+#plot(graphe3)
 
 #Ordre du graph 
 print("Ordre du graphe 3")
@@ -248,7 +304,7 @@ print("Ordre du graphe 3")
 
 #Connexité du graph
 print("Connexité du graphe 3")
-#print(is_connected(graphe3))
+print(is_connected(graphe3))
 
 #Graph complet ?
 print("Graphe complet ?")
@@ -283,8 +339,144 @@ matrice4.4 <- produitDeDeuxMatrices(matrice4.3, matrice4)
 
 print("Matrice 4 à la puissance 4")
 print(matrice4.4)
+print("M4-6 correspond à ........")
+
+#Exo 5
+#Graphe G1
+adj_G1 <- matrix(c(
+  0, 1, 1, 0, 0, 0,
+  0, 0, 0, 1, 1, 0,
+  0, 0, 0, 1, 1, 0,
+  0, 0, 0, 0, 0, 1,
+  0, 0, 0, 0, 0, 1,
+  0, 1, 0, 0, 0, 0
+), nrow=6, byrow=TRUE)
+
+#Graphe G2
+adj_G2 <- matrix(c(
+  0, 1, 0, 0, 0, 0,
+  0, 0, 1, 0, 0, 0,
+  0, 0, 0, 1, 0, 0,
+  0, 0, 0, 0, 1, 0,
+  0, 1, 0, 0, 0, 1,
+  1, 0, 1, 0, 0, 0
+), nrow=6, byrow=TRUE)
+
+#Graphe G3
+adj_G3 <- matrix(c(
+  0, 0, 0, 0, 0,
+  0, 0, 0, 1, 1,
+  0, 1, 0, 1, 0,
+  1, 0, 0, 0, 0,
+  1, 0, 0 ,0, 0
+), nrow=5, byrow=TRUE)
+
+
+#Graphe G4
+adj_G4 <- matrix(c(
+  0, 1, 0, 0, 0, 0,
+  1, 0, 0, 1, 0, 1,
+  0, 0, 0, 0, 0, 1,
+  0, 0, 0, 0, 1, 0,
+  0, 0, 1, 0, 0, 0,
+  1, 0, 0, 0, 0, 0
+), nrow=6, byrow=TRUE)
 
 
 
 
+#G1 ordre
+g1 <- graph_from_adjacency_matrix(adj_G1, mode="directed")
+V(g1)$name <- c("A", "B", "C", "D", "E", "F")
+plot(g1)
+print("G1 ordre")
+print(gorder(g1))
+print("G1 connexité")
+print(is_connected(g1, mode="strong"))
+print("G1 circuit")
+print(trouverCycles(g1))
+print("Chemin eulérien")
+print(find_eulerian_path(g1))
 
+#G2 ordre
+g2 <- graph_from_adjacency_matrix(adj_G2, mode="directed")
+V(g2)$name <- c("A", "B", "C", "D", "E", "F")
+plot(g2)
+print("G2 ordre")
+print(gorder(g2))
+print("G2 connexité")
+print(is_connected(g2, mode="strong"))
+print("G2 circuit")
+print(trouverCycles(g2))
+print("Chemin eulérien")
+print(find_eulerian_path(g2))
+
+#G3 ordre
+g3 <- graph_from_adjacency_matrix(adj_G3, mode="directed")
+V(g3)$name <- c("A", "B", "C", "D", "E")
+plot(g3)
+print("G3 ordre")
+print(gorder(g3))
+print("G3 connexité")
+print(is_connected(g3, mode="strong"))
+print("G3 circuit")
+print(trouverCycles(g3))
+print("Chemin eulérien")
+print(find_eulerian_path(g3))
+
+#G4 ordre
+g4 <- graph_from_adjacency_matrix(adj_G4, mode="directed")
+V(g4)$name <- c("A", "B", "C", "D", "E", "F")
+plot(g4)
+print("G4 ordre")
+print(gorder(g4))
+print("G4 connexité")
+print(is_connected(g4, mode="strong"))
+print("G4 circuit")
+print(trouverCycles(g4))
+print("Chemin eulérien")
+print(find_eulerian_path(g4))
+
+#Exercice 6
+matrice6 <- matrix(c(0, 1, 0, 0, 
+                     1, 2, 1, 0,
+                     0, 0, 1, 1,
+                     0, 0, 0, 0), nrow = 4, byrow=TRUE)
+
+#Affichage de la matrice initiale
+print("Matrice initiale")
+print(matrice6)
+
+#Multiplication de la matrice par elle-même
+resultat <- produitDeDeuxMatrices(matrice6, matrice6)
+resultat2 <- produitDeDeuxMatrices(matrice6, resultat)
+resultat3 <- produitDeDeuxMatrices(matrice6, resultat2)
+
+#Affichage du résultat
+print("Résultat de la multiplication")
+print(resultat3)
+
+#Exercice 7
+matrice7 <- matrix(c(
+  0, 0, 0, 0, 1, 0,
+  1, 0, 1, 0, 0, 1,
+  1, 1, 0, 1, 0, 0,
+  1, 0, 0, 0, 0, 0,
+  0, 0, 0, 1, 0, 0,
+  0, 0, 1, 0, 1, 0), nrow=6, byrow=TRUE)
+
+#Affichage de la matrice initiale
+print("Matrice initiale")
+print(matrice7)
+g5 <- graph_from_adjacency_matrix(matrice7, mode="directed")
+V(g5)$name <- c("A", "B", "C", "D", "E", "F")
+plot(g5)
+
+
+#Multiplication de la matrice par elle-même
+resultat <- produitDeDeuxMatrices(matrice7, matrice7)
+resultat2 <- produitDeDeuxMatrices(matrice7, resultat)
+
+print("Résuktat de la multiplication")
+print(resultat2)
+  
