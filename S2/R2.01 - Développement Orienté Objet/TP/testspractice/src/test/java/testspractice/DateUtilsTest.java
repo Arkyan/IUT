@@ -29,6 +29,8 @@ class DateUtilsTest {
 	@Test
 	void should_be_a_leap_year_when_divisible_by_4_but_not_by_100 () {
 		assertTrue(DateUtils.isLeapYear(2004));
+		assertTrue(DateUtils.isLeapYear(2016));
+		assertFalse(DateUtils.isLeapYear(2100));
 	 }
 	
 	@Test
