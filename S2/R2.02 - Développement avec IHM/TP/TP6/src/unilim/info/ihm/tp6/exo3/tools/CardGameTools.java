@@ -9,7 +9,7 @@ public class CardGameTools {
 	}
 	
 	public static ImageView loadCardImage(Integer cardValue) {
-		String imagePath = "/unilim/info/ihm/tp6/exo3/images/" + cardValue + ".png";
+		String imagePath = "/unilim/info/ihm/tp6/exo3/view/" + cardValue + ".png";
 		ImageView imageView = new ImageView(imagePath);
 		imageView.setFitWidth(100);
 		imageView.setFitHeight(150);

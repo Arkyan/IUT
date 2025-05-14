@@ -6,9 +6,7 @@ import javafx.scene.input.TransferMode;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-public class DndRectangleController {
-	//Inverser les couleurs des rectangles au drag and drop
-	
+public class DndRectangleController {	
 	public static void manageSourceDragAndDrop(Rectangle source) {
 		source.setOnDragDetected(event -> {
 			Dragboard db = source.startDragAndDrop(TransferMode.COPY);

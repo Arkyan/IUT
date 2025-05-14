@@ -1,8 +1,8 @@
 package warcardgame.application;
 
-import warcardgame.model.Card;
-import warcardgame.model.Rank;
-import warcardgame.model.Suit;
+import warcardgame.model.material.Card;
+import warcardgame.model.material.Rank;
+import warcardgame.model.material.Suit;
 
 public class CardMain {
 	public static void main(String[] args) {
