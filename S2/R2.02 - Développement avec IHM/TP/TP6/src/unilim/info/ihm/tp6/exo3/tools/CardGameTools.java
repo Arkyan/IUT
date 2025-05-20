@@ -1,6 +1,6 @@
 package unilim.info.ihm.tp6.exo3.tools;
 
-import javafx.scene.image.ImageView;
+import javafx.scene.image.Image;
 
 public class CardGameTools {
 	
@@ -8,12 +8,10 @@ public class CardGameTools {
 		return (int) (Math.random() * 12) + 1;
 	}
 	
-	public static ImageView loadCardImage(Integer cardValue) {
+	public static Image loadCardImage(Integer cardValue) {
 		String imagePath = "/unilim/info/ihm/tp6/exo3/view/" + cardValue + ".png";
-		ImageView imageView = new ImageView(imagePath);
-		imageView.setFitWidth(100);
-		imageView.setFitHeight(150);
-		return imageView;
+		Image image = new Image(CardGameTools.class.getResourceAsStream(imagePath));
+		return image;
 	}
 
 }

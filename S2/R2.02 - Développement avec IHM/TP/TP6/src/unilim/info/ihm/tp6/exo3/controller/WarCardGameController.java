@@ -1,12 +1,24 @@
 package unilim.info.ihm.tp6.exo3.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.ClipboardContent;
+import javafx.scene.input.Dragboard;
+import javafx.scene.input.TransferMode;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import unilim.info.ihm.tp6.exo3.model.Card;
+import unilim.info.ihm.tp6.exo3.tools.CardGameTools;
+import unilim.info.ihm.tp6.exo3.view.CardImageView;
 
 public class WarCardGameController {
+	
+    private Map<ImageView, Card> cardMap = new HashMap<>();
 
     @FXML
     private Button idBtnChanger;
@@ -16,14 +28,45 @@ public class WarCardGameController {
 
     @FXML
     private Pane idCardToBeat;
+    
+    @FXML
+    private ImageView card1View, card2View, card3View, card4View, card5View;
+    
+    @FXML
+    private ImageView cardToBeatView;
 
     @FXML
     private HBox idDeck;
 
     @FXML
     void changer(ActionEvent event) {
-        //idDeck.getChildren().clear();
-        //idDeck.getChildren().addAll(CardGameTools.generateCardValue(), CardGameTools.generateCardValue(), CardGameTools.generateCardValue());
+            
+        Card card1 = new Card(CardGameTools.generateCardValue());
+        Card card2 = new Card(CardGameTools.generateCardValue());
+        Card card3 = new Card(CardGameTools.generateCardValue());
+        Card card4 = new Card(CardGameTools.generateCardValue());
+        Card card5 = new Card(CardGameTools.generateCardValue());
+
+        cardMap.put(card1View, card1);
+        cardMap.put(card2View, card2);
+        cardMap.put(card3View, card3);
+        cardMap.put(card4View, card4);
+        cardMap.put(card5View, card5);
+
+
+        card1View.setImage(new CardImageView(card1).getImage());
+        card2View.setImage(new CardImageView(card2).getImage());
+        card3View.setImage(new CardImageView(card3).getImage());
+        card4View.setImage(new CardImageView(card4).getImage());
+        card5View.setImage(new CardImageView(card5).getImage());
+
+        manageSourceDnD(card1View, idDeck, cardMap);
+        manageSourceDnD(card2View, idDeck, cardMap);
+        manageSourceDnD(card3View, idDeck, cardMap);
+        manageSourceDnD(card4View, idDeck, cardMap);
+        manageSourceDnD(card5View, idDeck, cardMap);
+
+        manageTargetDnD(cardToBeatView, idCardToBeat, cardMap);
     }
 
     @FXML
@@ -33,8 +76,72 @@ public class WarCardGameController {
     
     @FXML
     void initialize() {
-        //idDeck.getChildren().addAll(CardGameTools.generateCardValue(), CardGameTools.generateCardValue(), CardGameTools.generateCardValue());
-        //idCardToBeat.getChildren().addAll(CardGameTools.generateCardValue());
+        changer(null);
+        Card cardToBeat = new Card(CardGameTools.generateCardValue());
+        cardMap.put(cardToBeatView, cardToBeat);
+        cardToBeatView.setImage(new CardImageView(cardToBeat).getImage());
     }
     
+    public static void manageSourceDnD(ImageView source, HBox container, Map<ImageView, Card> cardMap) {
+        source.setOnDragDetected(event -> {
+            Dragboard db = source.startDragAndDrop(TransferMode.MOVE);
+            ClipboardContent content = new ClipboardContent();
+
+            Card draggedCard = cardMap.get(source);
+            if (draggedCard != null) {
+                content.putImage(source.getImage());
+                content.putString(String.valueOf(draggedCard.getValue())); 
+            }
+
+            db.setContent(content);
+            event.consume();
+        });
+
+        source.setOnDragDone(event -> {
+            if (event.getTransferMode() == TransferMode.MOVE) {
+                source.setImage(null);
+                cardMap.remove(source);
+            }
+            event.consume();
+        });
+    }
+
+    public static void manageTargetDnD(ImageView target, Pane container, Map<ImageView, Card> cardMap) {
+        container.setOnDragOver(event -> {
+            if (event.getGestureSource() != container && event.getDragboard().hasImage() && event.getDragboard().hasString()) {
+                event.acceptTransferModes(TransferMode.MOVE);
+            }
+            event.consume();
+        });
+
+        container.setOnDragDropped(event -> {
+            Dragboard db = event.getDragboard();
+            boolean success = false;
+
+            if (db.hasImage() && db.hasString()) {
+                int draggedValue = Integer.parseInt(db.getString());
+
+                Card cardToBeat = cardMap.get(target);
+
+                if (cardToBeat == null || draggedValue > cardToBeat.getValue()) {
+                    target.setImage(db.getImage());
+
+                    cardMap.put(target, new Card(draggedValue));
+
+                    if (!container.getChildren().contains(target)) {
+                        container.getChildren().clear();
+                        container.getChildren().add(target);
+                    }
+                    success = true;
+                } else {
+                    System.out.println("La carte déplacée n'a pas une valeur supérieure à la carte à battre.");
+                }
+            }
+
+            event.setDropCompleted(success);
+            event.consume();
+        });
+    }
+
+
 }
