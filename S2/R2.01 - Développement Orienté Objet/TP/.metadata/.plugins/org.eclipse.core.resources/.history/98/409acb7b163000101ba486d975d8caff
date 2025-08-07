@@ -1,0 +1,49 @@
+package warcardgame.model.material.deck;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+import warcardgame.model.material.Card;
+import warcardgame.model.material.Rank;
+import warcardgame.model.material.Suit;
+
+class DeckTest {
+
+	private static final Card ACE_OF_HEARTS = new Card(Rank.ACE, Suit.HEARTS);
+	private static final Card KING_OF_DIAMONDS = new Card(Rank.KING, Suit.DIAMONDS);
+
+	@Test
+	void theDeckIsEmptyAtTheBeginning() {
+		Deck deck = new Deck();
+		assertTrue(deck.isEmpty());
+	}
+	
+	@Test
+	void theDeckIsNotEmptyWhenACardPutInTheDeck() {
+		Deck deck = new Deck();
+		Boolean isPut = deck.put(ACE_OF_HEARTS);
+		
+		assertTrue(isPut);
+		assertFalse(deck.isEmpty());
+	}
+	
+	@Test
+	void deckHasOneCardWhenACardPutInAnEmptyDeck() {
+		Deck deck = new Deck();
+		Boolean isPut = deck.put(ACE_OF_HEARTS);
+		
+		assertTrue(isPut);
+		assertFalse(deck.isEmpty());
+		assertEquals(1, deck.remainingCards());
+	}
+	
+	@Test
+	void deckHasTwoCardsWhenTwoCardsPutInAnEmptyDeck() {
+		Deck deck = new Deck();
+		Boolean isPut = deck.put(ACE_OF_HEARTS, KING_OF_DIAMONDS);
+
+		assertFalse(deck.isEmpty());
+		assertEquals(2, deck.remainingCards());
+	}
+}

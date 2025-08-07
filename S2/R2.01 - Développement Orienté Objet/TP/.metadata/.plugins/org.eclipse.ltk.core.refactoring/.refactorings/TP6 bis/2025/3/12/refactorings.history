@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;Nombre1&apos; in &apos;calculatrice.CalculatriceTest.doitAdditionerDeuxEntiers()&apos; to &apos;nombre1&apos;&#x0D;&#x0A;- Original project: &apos;TP6 bis&apos;&#x0D;&#x0A;- Original element: &apos;calculatrice.CalculatriceTest.doitAdditionerDeuxEntiers().Nombre1&apos;&#x0D;&#x0A;- Renamed element: &apos;Nombre1&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;Nombre1&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/test&lt;calculatrice{CalculatriceTest.java[CalculatriceTest~doitAdditionerDeuxEntiers@Nombre1!240!255!244!250!I!0!false" name="nombre1" references="true" stamp="1742404061550" version="1.0"/>
+</session>

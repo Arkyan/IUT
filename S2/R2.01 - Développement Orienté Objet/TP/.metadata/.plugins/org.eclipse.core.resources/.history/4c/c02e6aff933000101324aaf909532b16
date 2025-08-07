@@ -1,0 +1,33 @@
+package unilim.info.ihm.tp6.exo3.view;
+
+import javafx.scene.image.ImageView;
+import unilim.info.ihm.tp6.exo3.model.Card;
+import unilim.info.ihm.tp6.exo3.tools.CardGameTools;
+
+public class CardImageView extends ImageView {
+	
+	private Card card;
+	private ImageView imageViewcard;
+	
+	public CardImageView(Card card) {  
+		
+		if (card == null) {
+			throw new IllegalArgumentException("La carte ne peut pas être nulle");
+		}
+		
+		this.setCard(card);
+		this.setCard(card);
+	    ImageView source = CardGameTools.loadCardImage(card.getValue());
+	    this.setImage(source.getImage());
+	}
+
+	public Card getCard() {
+		return card;
+	}
+
+	public void setCard(Card card) {
+		this.card = card;
+	}
+	
+
+}

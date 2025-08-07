@@ -1,0 +1,44 @@
+package warcardgame.model.material.deck;
+
+import java.util.ArrayList;
+
+import warcardgame.model.material.Card;
+import warcardgame.model.material.Rank;
+import warcardgame.model.material.Suit;
+
+public class StandardDeck extends Deck {
+	private ArrayList<Card> cards;
+	
+	public StandardDeck() {
+		super();
+		this.putAllCardsTogether();
+	}
+		
+	private void putAllCardsTogether() {
+		for (Suit suit : Suit.values()) {
+			for (Rank rank : Rank.values()) {
+				this.cards.add(new Card(rank, suit));
+			}
+		}
+	}
+
+	@Override
+	public int hashCode() {
+		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		return true;
+	}
+	
+	
+}
+
+	

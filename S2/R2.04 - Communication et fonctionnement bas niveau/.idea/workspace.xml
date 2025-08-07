@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BackendCodeEditorMiscSettings">
+    <option name="/Default/RiderDebugger/RiderRestoreDecompile/RestoreDecompileSetting/@EntryValue" value="false" type="bool" />
+    <option name="/Default/Housekeeping/GlobalSettingsUpgraded/IsUpgraded/@EntryValue" value="true" type="bool" />
+    <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
+    <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexRemoved" />
+  </component>
+  <component name="CMakeProjectFlavorService">
+    <option name="flavorId" value="CMakePlainProjectFlavor" />
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="73492762-71f4-423d-8cfe-22bb5502ca04" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/TP/TP3/1.c" beforeDir="false" afterPath="$PROJECT_DIR$/TP/TP3/1.c" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/TD/TD1/2.c" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/TD/TD3/1fonction.c" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/TD/TD3/1pointeurs.c" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/TD/TD3/2.c" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/TD/TD3/4.c" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/TP/TP1/1.c" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/TP/TP3/1.c" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2sG5rE3rVcFkR8MEEU4OErbVype" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "C/C++ File.1.c (1).executor": "Run",
+    "C/C++ File.1.c.executor": "Run",
+    "C/C++ File.1fonction.c.executor": "Run",
+    "C/C++ File.1pointeurs.c.executor": "Run",
+    "C/C++ File.1tab.c.executor": "Run",
+    "C/C++ File.2.c (1).executor": "Run",
+    "C/C++ File.2.c.executor": "Run",
+    "C/C++ File.3.c (1).executor": "Run",
+    "C/C++ File.3.c.executor": "Run",
+    "C/C++ File.3maj.c.executor": "Run",
+    "C/C++ File.3min.c.executor": "Run",
+    "C/C++ File.4.c (1).executor": "Run",
+    "C/C++ File.4.c (2).executor": "Run",
+    "C/C++ File.4.c.executor": "Run",
+    "C/C++ File.5.c.executor": "Run",
+    "C/C++ File.5modif.c.executor": "Run",
+    "C/C++ File.5pointeurs.c.executor": "Run",
+    "C/C++ File.5tab.c.executor": "Run",
+    "C/C++ File.6.c.executor": "Run",
+    "RunOnceActivity.RadMigrateCodeStyle": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/didry/OneDrive/Documents/GitHub/IUT/S2/R2.04 - Communication et fonctionnement bas niveau",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "discord-application",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\didry\OneDrive\Documents\GitHub\IUT\S2\R2.04 - Communication et fonctionnement bas niveau\TD\TD2" />
+      <recent name="C:\Users\didry\OneDrive\Documents\GitHub\IUT\S2\R2.04 - Communication et fonctionnement bas niveau\TD\TD1" />
+    </key>
+  </component>
+  <component name="RunManager" selected="C/C++ File.5.c">
+    <configuration name="3.c (1)" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="R2.04 - Communication et fonctionnement bas niveau" TARGET_NAME="3.c" CONFIG_NAME="3.c">
+      <option name="sourceFile" value="TP\TP1\3.c" />
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.runfile.CppFileBuildBeforeRunTaskProvider$BasicBuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="3.c" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="R2.04 - Communication et fonctionnement bas niveau" TARGET_NAME="3.c" CONFIG_NAME="3.c">
+      <option name="sourceFile" value="TP\TP3\3.c" />
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.runfile.CppFileBuildBeforeRunTaskProvider$BasicBuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="4.c (1)" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="R2.04 - Communication et fonctionnement bas niveau" TARGET_NAME="4.c" CONFIG_NAME="4.c">
+      <option name="sourceFile" value="TP\TP3\4.c" />
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.runfile.CppFileBuildBeforeRunTaskProvider$BasicBuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="4.c (2)" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="R2.04 - Communication et fonctionnement bas niveau" TARGET_NAME="4.c" CONFIG_NAME="4.c">
+      <option name="sourceFile" value="TP\TP1\4.c" />
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.runfile.CppFileBuildBeforeRunTaskProvider$BasicBuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="5.c" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="R2.04 - Communication et fonctionnement bas niveau" TARGET_NAME="5.c" CONFIG_NAME="5.c">
+      <option name="sourceFile" value="TP\TP3\5.c" />
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.runfile.CppFileBuildBeforeRunTaskProvider$BasicBuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="C/C++ File.5.c" />
+        <item itemvalue="C/C++ File.4.c (1)" />
+        <item itemvalue="C/C++ File.3.c" />
+        <item itemvalue="C/C++ File.4.c (2)" />
+        <item itemvalue="C/C++ File.3.c (1)" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="73492762-71f4-423d-8cfe-22bb5502ca04" name="Changes" comment="" />
+      <created>1738069273167</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1738069273167</updated>
+      <workItem from="1738069274527" duration="62000" />
+      <workItem from="1738069352785" duration="6817000" />
+      <workItem from="1738076678250" duration="66000" />
+      <workItem from="1738076755767" duration="322000" />
+      <workItem from="1738569325414" duration="3954000" />
+      <workItem from="1738687012779" duration="3230000" />
+      <workItem from="1738690301659" duration="270000" />
+      <workItem from="1738690830117" duration="218000" />
+      <workItem from="1738691075589" duration="134000" />
+      <workItem from="1738691226744" duration="26000" />
+      <workItem from="1738767201941" duration="186000" />
+      <workItem from="1739284544130" duration="3412000" />
+      <workItem from="1739343806134" duration="5980000" />
+      <workItem from="1739879024374" duration="7525000" />
+      <workItem from="1739888868519" duration="8000" />
+      <workItem from="1740733415718" duration="50000" />
+      <workItem from="1740733477765" duration="4040000" />
+      <workItem from="1741761523920" duration="1851000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

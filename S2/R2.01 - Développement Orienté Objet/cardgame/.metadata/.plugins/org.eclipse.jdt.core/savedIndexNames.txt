@@ -1,0 +1,10 @@
+INDEX VERSION 1.134+C:\Users\didry\OneDrive\Documents\GitHub\IUT\cardgame\.metadata\.plugins\org.eclipse.jdt.core
+1479087595.index
+3806785317.index
+351742302.index
+1849818929.index
+3563601503.index
+1928261091.index
+3330094449.index
+1865797976.index
+778002769.index

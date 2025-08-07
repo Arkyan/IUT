@@ -1,0 +1,88 @@
+package unilim.info.ihm.tp6.exo3.controller;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.Dragboard;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import unilim.info.ihm.tp6.exo3.model.Card;
+import unilim.info.ihm.tp6.exo3.tools.CardGameTools;
+import unilim.info.ihm.tp6.exo3.view.CardImageView;
+
+public class WarCardGameController {
+
+    @FXML
+    private Button idBtnChanger;
+
+    @FXML
+    private Button idBtnQuitter;
+
+    @FXML
+    private Pane idCardToBeat;
+    
+    @FXML
+    private ImageView card1View, card2View, card3View, card4View, card5View;
+    
+    @FXML
+    private ImageView cardToBeatView;
+
+    @FXML
+    private HBox idDeck;
+
+    @FXML
+    void changer(ActionEvent event) {
+
+    }
+
+    @FXML
+    void quitter(ActionEvent event) {
+        System.exit(0);
+    }
+    
+    @FXML
+    void initialize() {
+        Card card1 = new Card(CardGameTools.generateCardValue());
+        Card card2 = new Card(CardGameTools.generateCardValue());
+        Card card3 = new Card(CardGameTools.generateCardValue());
+        Card card4 = new Card(CardGameTools.generateCardValue());
+        Card card5 = new Card(CardGameTools.generateCardValue());
+        Card cardToBeat = new Card(CardGameTools.generateCardValue());
+        
+        CardImageView card1V = new CardImageView(card1);
+        CardImageView card2V = new CardImageView(card2);
+        CardImageView card3V = new CardImageView(card3);
+        CardImageView card4V = new CardImageView(card4);
+        CardImageView card5V = new CardImageView(card5);
+        CardImageView cardToBeatV = new CardImageView(cardToBeat);
+    	
+        card1View.setImage(card1V.getImage());
+        card2View.setImage(card2V.getImage());
+        card3View.setImage(card3V.getImage());
+        card4View.setImage(card4V.getImage());
+        card5View.setImage(card5V.getImage());
+        cardToBeatView.setImage(cardToBeatV.getImage());
+    }
+    
+    public static void manageSourceDnD(CardImageView source, HBox target) {
+    		source.setOnDragDetected(event -> {
+			source.startFullDrag();
+		});
+
+		target.setOnDragOver(event -> {
+			if (event.getGestureSource() != target && event.getDragboard().hasImage()) {
+			}
+			event.consume();
+		});
+
+		target.setOnDragDropped(event -> {
+			CardImageView card = new CardImageView(source.getCard());
+			target.getChildren().add(card);
+			event.setDropCompleted(true);
+			event.consume();
+		});
+	}
+    
+
+}

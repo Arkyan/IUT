@@ -1,0 +1,5 @@
+package warcardgame.model;
+
+public class Suit {
+
+}

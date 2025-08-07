@@ -1,0 +1,58 @@
+package unilim.info.ihm.tp6.exo3.controller;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import unilim.info.ihm.tp6.exo3.tools.CardGameTools;
+
+public class WarCardGameController {
+
+    @FXML
+    private Button idBtnChanger;
+
+    @FXML
+    private Button idBtnQuitter;
+
+    @FXML
+    private Pane idCardToBeat;
+    
+    @FXML
+    private ImageView card1View, card2View, card3View, card4View, card5View;
+    
+    @FXML
+    private ImageView cardToBeatView;
+
+    @FXML
+    private HBox idDeck;
+
+    @FXML
+    void changer(ActionEvent event) {
+        //TODO
+    }
+
+    @FXML
+    void quitter(ActionEvent event) {
+        System.exit(0);
+    }
+    
+    @FXML
+    void initialize() {
+        Integer card1 = CardGameTools.generateCardValue();
+        Integer card2 = CardGameTools.generateCardValue();
+        Integer card3 = CardGameTools.generateCardValue();
+        Integer card4 = CardGameTools.generateCardValue();
+        Integer card5 = CardGameTools.generateCardValue();
+        Integer cardToBeat = CardGameTools.generateCardValue();
+
+        card1View.setImage(CardGameTools.loadCardImage(card1).getImage());
+        card2View.setImage(CardGameTools.loadCardImage(card2).getImage());
+        card3View.setImage(CardGameTools.loadCardImage(card3).getImage());
+        card4View.setImage(CardGameTools.loadCardImage(card4).getImage());
+        card5View.setImage(CardGameTools.loadCardImage(card5).getImage());
+        cardToBeatView.setImage(CardGameTools.loadCardImage(cardToBeat).getImage());
+    }
+    
+}

@@ -1,0 +1,45 @@
+package cafetoeil.model;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+import cafetoeil.model.cafedebase.*;
+import cafetoeil.model.supplement.*;
+
+class BoissonTest {
+
+	@Test
+	void testEspressoSimple() {
+		Boisson expressoSimple = new Espresso();
+		assertEquals("Espresso", expressoSimple.description());
+		assertEquals(1.99, expressoSimple.prix());
+	}
+	
+	@Test
+	void testColombiaAmeliore() {
+		Boisson colombiaAmeliore = new Colombia();
+		colombiaAmeliore = new Caramel(colombiaAmeliore);
+		colombiaAmeliore = new Chocolat(colombiaAmeliore);
+		colombiaAmeliore = new Chantilly(colombiaAmeliore);
+		assertEquals("Pur Colombia, Caramel, Chocolat, Chantilly", colombiaAmeliore.description());
+		assertEquals(1.34, colombiaAmeliore.prix());
+	}
+	
+	@Test
+	void testAutreColombiaAmeliore() {
+		Boisson autreColombiaAmeliore = new Colombia();
+		autreColombiaAmeliore = new Chocolat(autreColombiaAmeliore);
+		autreColombiaAmeliore = new Chocolat(autreColombiaAmeliore);
+		assertEquals("Pur Colombia, Chocolat, Chocolat", autreColombiaAmeliore.description());
+		assertEquals(1.29, autreColombiaAmeliore.prix());
+	}
+	
+	@Test
+	void testDeca() {
+		Boisson deca = new Deca();
+		assertEquals("Café déca", deca.description());
+		assertEquals(1.05, deca.prix());
+	}
+
+}
