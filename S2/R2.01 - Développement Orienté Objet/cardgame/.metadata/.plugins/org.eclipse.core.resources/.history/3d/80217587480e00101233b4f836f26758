@@ -1,5 +1,0 @@
-package warcardgame.model;
-
-public enum Rank {
-
-}
