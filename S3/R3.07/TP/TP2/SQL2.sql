@@ -342,92 +342,115 @@ END;
 
 /* QST 10 */
 -- A l’aide d’un curseur, vérifiez les données de la table TOPSCORE. Si une ligne n’est pas correcte (mauvais scoreMax ou aucune partie jouée pour le joueur) vous devez l’afficher dans la console.
-DECLARE @idJoueur  INT,
-        @idJeux    INT,
-        @score     INT,
-        @titre     VARCHAR(30),
-        @scoreMax  INT,
-        @idJeuxMax INT;
+DECLARE @idJoueur INT, 
+        @idJeux INT, 
+        @scoreMax INT, 
+        @titre VARCHAR(30)
+DECLARE @scoreMaxCalcul INT
 
-DECLARE topScoreCursor CURSOR FOR
-    SELECT t.idJoueur, t.idJeux, t.scoreMax, j.titre
-FROM TOPSCORE t
-    JOIN JEUX j ON t.idJeux = j.idJeux
-ORDER BY t.idJoueur, t.idJeux;
+DECLARE mon_curseur CURSOR FOR SELECT idJoueur, JEUX.idJeux, scoreMax, titre
+FROM TOPSCORE JOIN JEUX ON (TOPSCORE.idJeux=JEUX.idJeux)
 
-OPEN topScoreCursor;
+OPEN mon_curseur
+FETCH NEXT FROM mon_curseur INTO @idJoueur, @idJeux, @scoreMax, @titre
 
-FETCH NEXT FROM topScoreCursor INTO @idJoueur, @idJeux, @score, @titre;
-
-WHILE @@FETCH_STATUS = 0
+WHILE @@fetch_status = 0
 BEGIN
-    PRINT 'Vérification du joueur ' + CAST(@idJoueur AS VARCHAR) + ' pour le jeu ' + CAST(@idJeux AS VARCHAR) + ' (' + @titre + ') avec un score de ' + CAST(@score AS VARCHAR);
-    -- vérfier que la partie existe
-    IF NOT EXISTS (
-        SELECT 1
-    FROM PARTIE pa
-    WHERE pa.idJoueur = @idJoueur
-        AND pa.idJeux   = @idJeux
-    ) BEGIN
-        PRINT 'Erreur: Le joueur ' + CAST(@idJoueur AS VARCHAR) + ' n''a jamais joué au jeu ' + CAST(@idJeux AS VARCHAR);
-    END;
-
-    -- chercher le score max existant pour ce joueur et ce jeu
-    SELECT @scoreMax = t.scoreMax,
-        @idJeuxMax = t.idJeux
-    FROM TOPSCORE t
-    WHERE t.idJoueur = @idJoueur
-        AND t.idJeux   = @idJeux;
-    -- vérifier que le score max est correct
-    IF @scoreMax IS NOT NULL AND @score > @scoreMax
+    IF NOT EXISTS(SELECT * FROM PARTIE p JOIN JEUX j ON j.idJeux=p.idJeux
+                  WHERE idJoueur = @idJoueur AND titre = @titre)
+        PRINT 'Aucune partie jouée pour le joueur ' +
+              convert(varchar, @idJoueur) + ' et le jeux ' +
+              convert(varchar, @titre)
+    ELSE
     BEGIN
-        PRINT 'Erreur: Le joueur ' + CAST(@idJoueur AS VARCHAR) + ' a un score de ' + CAST(@score AS VARCHAR) + ' pour le jeu ' + CAST(@idJeux AS VARCHAR) + ', mais le score max est ' + CAST(@scoreMax AS VARCHAR);
-    END;
+        SELECT @scoreMaxCalcul = MAX(score)
+        FROM PARTIE p JOIN JEUX j ON j.idJeux=p.idJeux
+        WHERE idJoueur = @idJoueur AND titre = @titre
 
-    FETCH NEXT FROM topScoreCursor INTO @idJoueur, @idJeux, @score, @titre;
-END;
+        IF @scoreMaxCalcul <> @scoreMax
+            PRINT 'Erreur de scoreMax pour le joueur ' +
+                  convert(varchar, @idJoueur) + ' et le jeux ' +
+                  convert(varchar, @titre) + ' scoreMax de TOPSCORE=' +
+                  convert(varchar, @scoreMax) + '<> ' +
+                  convert(varchar, @scoreMaxCalcul)
+    END
+    FETCH NEXT FROM mon_curseur INTO @idJoueur, @idJeux, @scoreMax, @titre
+END
 
-CLOSE topScoreCursor;
-DEALLOCATE topScoreCursor;
+CLOSE mon_curseur;
+DEALLOCATE mon_curseur;
 
 GO
 -- 11. Ecrivez le déclencheur permettant de conserver la cohérence des données de la table TOPSCORE en cas de suppression ou modification d’un score de la table PARTIE.
-CREATE TRIGGER maintainTopScore
-ON PARTIE
-AFTER DELETE, UPDATE
+CREATE TRIGGER checkTopScore
+ON PARTIE AFTER UPDATE, DELETE
 AS
 BEGIN
-    -- Supprimer les topscores pour lesquels il n’y a plus de partie
-    DELETE FROM TOPSCORE
-    WHERE EXISTS (
-        SELECT 1
-        FROM DELETED d
-        WHERE d.idJoueur = TOPSCORE.idJoueur
-          AND d.idJeux   = TOPSCORE.idJeux
-    )
-    AND NOT EXISTS (
-        SELECT 1
-        FROM PARTIE p
-        WHERE p.idJoueur = TOPSCORE.idJoueur
-          AND p.idJeux   = TOPSCORE.idJeux
-    );
+DECLARE @idJoueur INT,
+        @idJeux INT,
+        @titre VARCHAR(30)
+DECLARE @scoreMax INT, 
+        @idJeuxMax INT, 
+        @currentIdJeuxMax INT
+IF EXISTS(SELECT * FROM INSERTED)
+    BEGIN 
+        PRINT('UPDATE..............')
+        IF UPDATE(score)
+        BEGIN 
+            PRINT('UPDATE score..............')
+            SELECT @idJoueur = idJoueur, @idJeux = idJeux FROM INSERTED
+            SELECT @titre = titre FROM JEUX WHERE idJeux = @idJeux
 
-    -- Mettre à jour les topscores existants
-    UPDATE TOPSCORE
-    SET scoreMax = (
-        SELECT MAX(p.score)
-        FROM PARTIE p
-        WHERE p.idJoueur = TOPSCORE.idJoueur
-          AND p.idJeux   = TOPSCORE.idJeux
-    )
-    WHERE EXISTS (
-        SELECT 1
-        FROM DELETED d
-        WHERE d.idJoueur = TOPSCORE.idJoueur
-          AND d.idJeux   = TOPSCORE.idJeux
-    );
-END;
-GO
+            SELECT @currentIdJeuxMax = t.idJeux
+            FROM TOPSCORE t, JEUX j
+            WHERE j.idJeux = t.idJeux AND j.titre = @titre AND t.idJoueur = @idJoueur
+            PRINT 'idJeuxMax à effacer : ' + convert(varchar, @currentIdJeuxMax)
+
+            DELETE FROM TOPSCORE WHERE idJoueur = @idJoueur AND idJeux = @currentIdJeuxMax
+
+            SELECT @scoreMax = MAX(score)
+            FROM PARTIE p JOIN JEUX j ON j.idJeux = p.idJeux
+            WHERE idJoueur = @idJoueur AND titre = @titre
+            PRINT 'Score max : ' + convert(varchar, @scoreMax)
+
+            SET @idJeuxMax = (SELECT TOP 1 p.idJeux
+                            FROM PARTIE p JOIN JEUX j ON j.idJeux = p.idJeux
+                            WHERE idJoueur = @idJoueur AND titre = @titre AND score = @scoreMax
+                            ORDER BY p.datePartie ASC)
+            PRINT 'idJeuxMax : ' + convert(varchar, @idJeuxMax)
+            INSERT INTO TOPSCORE VALUES(@idJoueur, @idJeuxMax, @scoreMax)
+        END
+    END ELSE
+        BEGIN 
+            PRINT('DELETE..............')
+            SELECT @idJoueur = idJoueur, @idJeux = idJeux FROM DELETED
+            SELECT @titre = titre FROM JEUX WHERE idJeux = @idJeux
+
+            SELECT @currentIdJeuxMax = t.idJeux
+            FROM TOPSCORE t, JEUX j
+            WHERE j.idJeux = t.idJeux AND j.titre = @titre AND t.idJoueur = @idJoueur
+            PRINT 'idJeux à effacer : ' + convert(varchar, @currentIdJeuxMax)
+
+            DELETE FROM TOPSCORE WHERE idJoueur = @idJoueur AND idJeux = @currentIdJeuxMax
+
+            IF EXISTS(SELECT * FROM PARTIE p JOIN JEUX j ON j.idJeux = p.idJeux
+            WHERE idJoueur = @idJoueur AND titre = @titre)
+            BEGIN
+                SELECT @scoreMax = MAX(score)
+                FROM PARTIE p JOIN JEUX j ON j.idJeux = p.idJeux
+                WHERE idJoueur = @idJoueur AND titre = @titre
+                PRINT 'Score max : ' + convert(varchar, @scoreMax)
+
+                SET @idJeuxMax = (SELECT TOP 1 p.idJeux
+                                FROM PARTIE p JOIN JEUX j ON j.idJeux = p.idJeux
+                                WHERE idJoueur = @idJoueur AND titre = @titre AND score = @scoreMax
+                                ORDER BY p.datePartie ASC)
+                PRINT 'idJeuxMax : ' + convert(varchar, @idJeuxMax)
+                INSERT INTO TOPSCORE VALUES(@idJoueur, @idJeuxMax, @scoreMax)
+        END
+    END
+END
+
 
 -- 12.  Proposez un nouveau modèle relationnel permettant de simplifier la gestion des jeux et de
 -- leurs versions. Ecrivez les scripts de mise à jour de votre base ainsi que de migration des
