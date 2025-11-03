@@ -1,0 +1,7 @@
+ip address add 192.168.1.100/24 dev eth0
+ip link set dev eth0 up
+ip route add default via 192.168.1.254
+
+systemctl enable bind9
+systemctl start bind9
+

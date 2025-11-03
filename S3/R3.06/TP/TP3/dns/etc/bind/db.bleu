@@ -1,0 +1,13 @@
+$TTL 86400
+bleu.org. IN SOA dns.bleu.org. root.dns.bleu.org. (
+	2016112101
+	10800
+	3600
+	604800
+	86400
+)
+
+@ IN NS dns.bleu.org.
+dns.bleu.org. IN A 192.168.1.100
+pca IN A 192.168.1.1
+r0 IN A 192.168.1.254

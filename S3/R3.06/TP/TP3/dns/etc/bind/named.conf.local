@@ -1,0 +1,4 @@
+zone "bleu.org" {
+    type master;
+    file "/etc/bind/db.bleu";
+};
