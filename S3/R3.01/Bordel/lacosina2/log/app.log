@@ -1,0 +1,6 @@
+[2025-11-27T07:57:09.442299+00:00] app_log.INFO: l'utilisateur  s'est déconnecté [] []
+[2025-11-27T07:57:45.061992+00:00] app_log.INFO: l'utilisateur admin s'est connecté [] []
+[2025-11-27T07:57:55.866836+00:00] app_log.INFO: l'utilisateur  modifie une recette [] []
+[2025-11-27T07:58:02.260693+00:00] app_log.INFO: l'utilisateur  enregistre une recette [] []
+[2025-11-27T07:59:51.105309+00:00] app_log.INFO: l'utilisateur admin s'est déconnecté [] []
+[2025-11-27T07:59:57.829309+00:00] app_log.INFO: l'utilisateur admin s'est connecté [] []

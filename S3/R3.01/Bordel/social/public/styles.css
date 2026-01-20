@@ -1,0 +1,135 @@
+.comment-content[contenteditable="true"] {
+    outline: none;
+    cursor: text;
+    transition: all 0.3s ease;
+    min-height: 50px;
+}
+
+.comment-content.editing {
+    background-color: #f8f9fa;
+}
+
+.comment-content[contenteditable="true"]:focus {
+    background-color: #fff;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+.edit-controls {
+    animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.btn-like.liked {
+    font-weight: bold;
+}
+
+.btn-upvote:hover,
+.btn-downvote:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+}
+
+.vote-score {
+    min-width: 30px;
+    text-align: center;
+}
+
+#notificationBadge {
+    font-size: 0.65rem;
+    padding: 0.25em 0.5em;
+}
+
+#notificationBadge.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: translate(-50%, 0) scale(1);
+    }
+    50% {
+        transform: translate(-50%, 0) scale(1.1);
+    }
+}
+
+.notification-dropdown {
+    position: absolute;
+    top: 100%;
+    margin-top: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0.5rem;
+    display: none;
+    z-index: 1000;
+}
+
+.notification-dropdown.show {
+    display: block;
+    animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.notification-item {
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    border-left: 3px solid transparent;
+}
+
+.notification-item:hover {
+    background-color: #f8f9fa !important;
+}
+
+.notification-item.bg-light {
+    border-left-color: #0d6efd;
+}
+
+.dropdown-header {
+    padding: 0.75rem 1rem;
+    background-color: #f8f9fa;
+}
+
+#notificationBtn {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+#notificationBtn:hover {
+    transform: scale(1.1);
+}
+
+.nav-item.dropdown {
+    position: relative;
+}
+
+.min-width-0 {
+    min-width: 0;
+}
+
+.text-break {
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+.notification-item p {
+    white-space: normal;
+}

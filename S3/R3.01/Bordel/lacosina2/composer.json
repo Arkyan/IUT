@@ -1,0 +1,20 @@
+{
+    "name": "app/r301",
+    "autoload": {
+        "psr-4": {
+            "App\\R301\\": "src/",
+            "App\\R301\\Model\\": "src/models/",
+            "App\\R301\\Controller\\": "src/Controllers/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Yazouv",
+            "email": "yazouv.pro@gmail.com"
+        }
+    ],
+    "require": {
+        "logger/logger": "^0.0.2",
+        "monolog/monolog": "^2.10"
+    }
+}

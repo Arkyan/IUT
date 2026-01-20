@@ -1,0 +1,17 @@
+{
+    "name": "app/r301",
+    "autoload": {
+        "psr-4": {
+            "App\\R301\\": "app/",
+            "App\\R301\\Controller\\": "app/controllers/",
+            "App\\R301\\Model\\": "app/models/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jules Didry",
+            "email": "didryjules@gmail.com"
+        }
+    ],
+    "require": {}
+}

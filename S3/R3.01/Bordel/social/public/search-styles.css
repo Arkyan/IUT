@@ -1,0 +1,124 @@
+/* Styles pour la barre de recherche en direct */
+
+.search-container {
+  position: relative;
+  min-width: 300px;
+  max-width: 400px;
+}
+
+.search-input-group {
+  position: relative;
+}
+
+#searchInput {
+  border-radius: 20px;
+  padding: 8px 15px;
+  font-size: 14px;
+  border: 1px solid var(--input-border);
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+  transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+#searchInput:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+#searchResults {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  max-height: 400px;
+  overflow-y: auto;
+  display: none;
+  z-index: 1000;
+  box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+.search-category {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.search-category:last-child {
+  border-bottom: none;
+}
+
+.search-category-title {
+  padding: 8px 15px;
+  margin: 0;
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  background-color: var(--bg-secondary);
+}
+
+.search-result-item {
+  display: block;
+  padding: 12px 15px;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.search-result-item:last-child {
+  border-bottom: none;
+}
+
+.search-result-item:hover {
+  background-color: var(--bg-secondary);
+  color: var(--link-color);
+}
+
+.search-result-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.search-result-content strong {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 500;
+}
+
+.search-result-content small {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 12px;
+}
+
+.search-no-results,
+.search-error {
+  padding: 15px;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.search-error {
+  color: #dc3545;
+}
+
+@media (max-width: 768px) {
+  .search-container {
+    min-width: 200px;
+    max-width: 300px;
+  }
+
+  #searchResults {
+    max-height: 300px;
+  }
+}
