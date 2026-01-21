@@ -1,0 +1,12 @@
+[workspace]
+
+resolver = "2"
+
+members = [
+    "options_and_results",
+    "ownership",
+    "options_and_results",
+    "concurrency",
+    "port_scanner",
+    "network_services"
+, "exquisite_corpse", "chat_iut"]
