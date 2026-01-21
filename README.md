@@ -21,4 +21,8 @@ Les principales SAE/Projets sont dans des repo à part
 
 
 ## 3e Semestre
-- SAE3.01 :
+- SAE3.01 : Dans un dépot privé
+
+## 4e Semestre
+- SAE4.01A : Dans un dépot privé identique au 3e Semestre
+
