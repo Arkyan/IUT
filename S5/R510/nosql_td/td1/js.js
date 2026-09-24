@@ -1,69 +1,4 @@
 ///////////////////
-//1.1 : Insertions 
-///////////////////
-//3) Document JSON
-//Utilisateur 
-{
-  _id: ObjectId("65a1f2c3e4b0a1b2c3d4e5f6"),
-  nom: "Marie Dubois",
-  email: "marie.dubois@example.com",
-  bio: "Passionnée de trail et de vélo de route, je cours 4 fois par semaine.",
-  dateInscription: ISODate("2024-03-15T10:00:00Z"),
-  equipements: [
-    {
-      nom: "Nimbus 2000",
-      categorie: "chaussures",
-      dateAchat: ISODate("2025-06-01T00:00:00Z")
-    },
-    {
-      nom: "BTWIN Q7",
-      categorie: "velo",
-      dateAchat: ISODate("2023-11-20T00:00:00Z")
-    },
-    {
-      nom: "Garminne Forerunner 965",
-      categorie: "montre",
-      dateAchat: ISODate("2024-01-10T00:00:00Z")
-    }
-  ]
-}
-
-//Une activité de course à pied de 10km avec 2 commentaires
-{
-  _id: ObjectId("65a1f2c3e4b0a1b2c3d4e600"),
-  user_id: ObjectId("65a1f2c3e4b0a1b2c3d4e5f6"),
-  type: "course_a_pied",
-  date: ISODate("2026-09-15T07:30:00Z"),
-  distance: 10.2,
-  duree: 3500,
-  allureMoyenne: "5:06",
-  parcours: {
-    depart: {
-      type: "Point",
-      coordinates: [43.56872057829341, 1.585009859184221]
-    },
-    nom: "Parc de la Bâtie"
-  },
-  commentaires: [
-    {
-      _id: ObjectId("65a1f2c3e4b0a1b2c3d4e601"),
-      user_id: ObjectId("65a1f2c3e4b0a1b2c3d4e601"),
-      auteur: "Lucas Martin",
-      texte: "Belle allure sur ce parcours, bravo bel homme !",
-      date: ISODate("2026-09-15T08:15:00Z")
-    },
-    {
-      _id: ObjectId("65a1f2c3e4b0a1b2c3d4e602"),
-      user_id: ObjectId("65a1f2c3e4b0a1b2c3d4e602"),
-      auteur: "Sophie Renard",
-      texte: "On se fait la même la semaine prochaine ?",
-      date: ISODate("2026-09-15T09:02:00Z")
-    }
-  ]
-}
-
-
-///////////////////
 //2.1 : Insertions 
 ///////////////////
 db.utilisateurs.insertMany([
@@ -279,3 +214,12 @@ db.activites.aggregate([
     }
   }
 ])
+
+////////////////////////////////////////////////
+////////////////////////////////////////////////
+////////////////////////////////////////////////
+////////////////////////////////////////////////
+////////////////////////////////////////////////
+////////////////////////////////////////////////
+////////////////////////////////////////////////
+//TD1 BIS
