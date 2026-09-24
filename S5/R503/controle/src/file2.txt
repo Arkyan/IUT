@@ -1,0 +1,5 @@
+3 vaches 18 moutons
+3 noirs 2 arabes
+3 vaches 5 moutons
+4 chevaux -7 11.5
+chiens 2 chats 0 souris 7
